@@ -1,0 +1,32 @@
+﻿@using System.Web.Configuration
+@model IEnumerable<FootballTeamManager.Models.Fixture>
+@{
+    ViewBag.Title = "Terminarz";
+}
+
+<h2>Terminarz</h2>
+
+<table class="table table-bordered table-hover">
+<thead>
+<tr>
+    <th>Fixture</th>
+    <th>First team</th>
+    <th>Second team</th>
+    <th>Score</th>
+</tr>
+</thead>
+<tbody>
+@foreach (var fixture in Model)
+{
+    <tr>
+        <td>@fixture.Date</td>
+        <td>@fixture.FirstTeam.Name</td>
+        <td>@fixture.SecondTeam.Name</td>
+        <td>@fixture.FirstTeamScore : @fixture.SecondTeamScore</td>
+    </tr>
+}
+</tbody>
+</table>
+
+
+
