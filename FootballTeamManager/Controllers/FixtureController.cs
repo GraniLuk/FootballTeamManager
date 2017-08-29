@@ -24,5 +24,10 @@ namespace FootballTeamManager.Controllers
 
             return View(fixtures);
         }
+
+        public ActionResult New()
+        {
+            return View();
+        }
     }
 }
