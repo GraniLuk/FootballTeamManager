@@ -194,6 +194,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PlayersController.cs" />
+    <Compile Include="Controllers\RankingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -245,6 +246,10 @@
     <Compile Include="Migrations\201708281646587_Nowa kolumna do Fixture.Designer.cs">
       <DependentUpon>201708281646587_Nowa kolumna do Fixture.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708300536302_Zmiana kolumny w player.cs" />
+    <Compile Include="Migrations\201708300536302_Zmiana kolumny w player.Designer.cs">
+      <DependentUpon>201708300536302_Zmiana kolumny w player.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Fixture.cs" />
@@ -255,6 +260,7 @@
     <Compile Include="Models\TeamPlayerAssociation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\Ranking.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -364,6 +370,7 @@
     <Content Include="Views\Players\Details.cshtml" />
     <Content Include="Views\Players\Edit.cshtml" />
     <Content Include="Views\Players\Index.cshtml" />
+    <Content Include="Views\Ranking\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -416,6 +423,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708281646587_Nowa kolumna do Fixture.resx">
       <DependentUpon>201708281646587_Nowa kolumna do Fixture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708300536302_Zmiana kolumny w player.resx">
+      <DependentUpon>201708300536302_Zmiana kolumny w player.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

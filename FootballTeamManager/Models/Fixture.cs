@@ -7,10 +7,6 @@ namespace FootballTeamManager.Models
 {
     public class Fixture
     {
-        public Fixture()
-        {
-            Name = "Sparing";
-        }
         public int Id { get; set; }
         [Required]
         [Display(Name = "Data")]
@@ -20,6 +16,5 @@ namespace FootballTeamManager.Models
         public Team SecondTeam { get; set; }
         public int FirstTeamScore { get; set; }
         public int SecondTeamScore { get; set; }
-        public string Name { get; set; }
     }
 }

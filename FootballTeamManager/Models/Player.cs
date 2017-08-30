@@ -10,9 +10,10 @@ namespace FootballTeamManager.Models
         }
         public int Id { get; set; }
         [Required]
+        [StringLength(30)]
         public string Name { get; set; }
         [Required]
-        public int Rank { get; set; }
+        public int Skill { get; set; }
         [Required]
         public bool Active { get; set; }
     }
