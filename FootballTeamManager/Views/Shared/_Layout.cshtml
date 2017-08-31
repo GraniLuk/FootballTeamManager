@@ -16,12 +16,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    
+
                 </button>
                 @Html.ActionLink("Terminarz", "Index", "Fixture", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Ranking", "Index", "Ranking")</li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Losowanie","Index","Draw")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
