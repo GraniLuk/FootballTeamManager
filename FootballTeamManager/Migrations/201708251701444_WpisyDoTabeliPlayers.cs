@@ -7,7 +7,7 @@ namespace FootballTeamManager.Migrations
     {
         public override void Up()
         {
-            Sql("INSERT INTO Players(Name,Rank,Active) Values (\'£ukasz Granica\',11,1)");
+            //Sql("INSERT INTO Players(Name,Rank,Active) Values (\'£ukasz Granica\',11,1)");
         }
         
         public override void Down()
