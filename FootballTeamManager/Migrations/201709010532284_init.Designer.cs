@@ -7,13 +7,13 @@ namespace FootballTeamManager.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class ZespolyOstatnieSpotkanie : IMigrationMetadata
+    public sealed partial class init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ZespolyOstatnieSpotkanie));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
         
         string IMigrationMetadata.Id
         {
-            get { return "201708251757383_ZespolyOstatnieSpotkanie"; }
+            get { return "201709010532284_init"; }
         }
         
         string IMigrationMetadata.Source

@@ -3,7 +3,7 @@ namespace FootballTeamManager.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialModel : DbMigration
+    public partial class init : DbMigration
     {
         public override void Up()
         {
@@ -15,13 +15,13 @@ namespace FootballTeamManager.Migrations
                         Date = c.DateTime(nullable: false),
                         FirstTeamScore = c.Int(nullable: false),
                         SecondTeamScore = c.Int(nullable: false),
-                        FirsTeam_Id = c.Int(),
+                        FirstTeam_Id = c.Int(),
                         SecondTeam_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Teams", t => t.FirsTeam_Id)
+                .ForeignKey("dbo.Teams", t => t.FirstTeam_Id)
                 .ForeignKey("dbo.Teams", t => t.SecondTeam_Id)
-                .Index(t => t.FirsTeam_Id)
+                .Index(t => t.FirstTeam_Id)
                 .Index(t => t.SecondTeam_Id);
             
             CreateTable(
@@ -29,7 +29,7 @@ namespace FootballTeamManager.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
+                        Name = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -38,8 +38,8 @@ namespace FootballTeamManager.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        Rank = c.Int(nullable: false),
+                        Name = c.String(nullable: false, maxLength: 30),
+                        Skill = c.Int(nullable: false),
                         Active = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
@@ -66,6 +66,20 @@ namespace FootballTeamManager.Migrations
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId)
                 .Index(t => t.RoleId);
+            
+            CreateTable(
+                "dbo.TeamPlayerAssociations",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Player_Id = c.Int(),
+                        Team_Id = c.Int(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Players", t => t.Player_Id)
+                .ForeignKey("dbo.Teams", t => t.Team_Id)
+                .Index(t => t.Player_Id)
+                .Index(t => t.Team_Id);
             
             CreateTable(
                 "dbo.AspNetUsers",
@@ -119,20 +133,25 @@ namespace FootballTeamManager.Migrations
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.TeamPlayerAssociations", "Team_Id", "dbo.Teams");
+            DropForeignKey("dbo.TeamPlayerAssociations", "Player_Id", "dbo.Players");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.Fixtures", "SecondTeam_Id", "dbo.Teams");
-            DropForeignKey("dbo.Fixtures", "FirsTeam_Id", "dbo.Teams");
+            DropForeignKey("dbo.Fixtures", "FirstTeam_Id", "dbo.Teams");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
+            DropIndex("dbo.TeamPlayerAssociations", new[] { "Team_Id" });
+            DropIndex("dbo.TeamPlayerAssociations", new[] { "Player_Id" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.Fixtures", new[] { "SecondTeam_Id" });
-            DropIndex("dbo.Fixtures", new[] { "FirsTeam_Id" });
+            DropIndex("dbo.Fixtures", new[] { "FirstTeam_Id" });
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
+            DropTable("dbo.TeamPlayerAssociations");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.Players");
