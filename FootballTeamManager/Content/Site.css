@@ -22,3 +22,36 @@ select,
 textarea {
     max-width: 280px;
 }
+
+img {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+}
+.imgA1 {
+  z-index: 1;
+}
+.imgB1 {
+  z-index: 3;
+  top: 450px;
+  left: 120px;
+
+}
+.imgB2 {
+  z-index: 3;
+  top: 450px;
+  left: 300px;
+ 
+}
+
+.imgB3 {
+  z-index: 3;
+  top: 150px;
+  left: 200px;
+
+}
+.containerdiv {
+  border: 0;
+  float: initial;
+  position: relative;
+} 

@@ -275,6 +275,8 @@
     <Content Include="Content\themes\base\datepicker.css" />
     <Content Include="Content\themes\base\dialog.css" />
     <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\Pitch.png" />
+    <Content Include="Content\themes\base\images\player.png" />
     <Content Include="Content\themes\base\images\podpis.png" />
     <Content Include="Content\themes\base\images\team.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
