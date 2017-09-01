@@ -202,54 +202,6 @@
     <Compile Include="Migrations\201708251628414_InitialModel.Designer.cs">
       <DependentUpon>201708251628414_InitialModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201708251642111_AddAssociationBetweenPlayerAndTeam.cs" />
-    <Compile Include="Migrations\201708251642111_AddAssociationBetweenPlayerAndTeam.Designer.cs">
-      <DependentUpon>201708251642111_AddAssociationBetweenPlayerAndTeam.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708251701444_WpisyDoTabeliPlayers.cs" />
-    <Compile Include="Migrations\201708251701444_WpisyDoTabeliPlayers.Designer.cs">
-      <DependentUpon>201708251701444_WpisyDoTabeliPlayers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708251727137_NastepniGracze.cs" />
-    <Compile Include="Migrations\201708251727137_NastepniGracze.Designer.cs">
-      <DependentUpon>201708251727137_NastepniGracze.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708251730152_IJeszczeNastepni.cs" />
-    <Compile Include="Migrations\201708251730152_IJeszczeNastepni.Designer.cs">
-      <DependentUpon>201708251730152_IJeszczeNastepni.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708251738248_KolejniGracze.cs" />
-    <Compile Include="Migrations\201708251738248_KolejniGracze.Designer.cs">
-      <DependentUpon>201708251738248_KolejniGracze.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708251749523_MakeRequiredFieldsInTeamAndPlayer.cs" />
-    <Compile Include="Migrations\201708251749523_MakeRequiredFieldsInTeamAndPlayer.Designer.cs">
-      <DependentUpon>201708251749523_MakeRequiredFieldsInTeamAndPlayer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708251750291_WynikOstatniegoMeczu.cs" />
-    <Compile Include="Migrations\201708251750291_WynikOstatniegoMeczu.Designer.cs">
-      <DependentUpon>201708251750291_WynikOstatniegoMeczu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708251753145_ZmianaNazwyPolaFirstTeam.cs" />
-    <Compile Include="Migrations\201708251753145_ZmianaNazwyPolaFirstTeam.Designer.cs">
-      <DependentUpon>201708251753145_ZmianaNazwyPolaFirstTeam.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708251753455_WynikOstatniegoSpotkania.cs" />
-    <Compile Include="Migrations\201708251753455_WynikOstatniegoSpotkania.Designer.cs">
-      <DependentUpon>201708251753455_WynikOstatniegoSpotkania.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708251757383_ZespolyOstatnieSpotkanie.cs" />
-    <Compile Include="Migrations\201708251757383_ZespolyOstatnieSpotkanie.Designer.cs">
-      <DependentUpon>201708251757383_ZespolyOstatnieSpotkanie.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708281646587_Nowa kolumna do Fixture.cs" />
-    <Compile Include="Migrations\201708281646587_Nowa kolumna do Fixture.Designer.cs">
-      <DependentUpon>201708281646587_Nowa kolumna do Fixture.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708300536302_Zmiana kolumny w player.cs" />
-    <Compile Include="Migrations\201708300536302_Zmiana kolumny w player.Designer.cs">
-      <DependentUpon>201708300536302_Zmiana kolumny w player.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Fixture.cs" />
@@ -388,42 +340,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201708251628414_InitialModel.resx">
       <DependentUpon>201708251628414_InitialModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708251642111_AddAssociationBetweenPlayerAndTeam.resx">
-      <DependentUpon>201708251642111_AddAssociationBetweenPlayerAndTeam.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708251701444_WpisyDoTabeliPlayers.resx">
-      <DependentUpon>201708251701444_WpisyDoTabeliPlayers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708251727137_NastepniGracze.resx">
-      <DependentUpon>201708251727137_NastepniGracze.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708251730152_IJeszczeNastepni.resx">
-      <DependentUpon>201708251730152_IJeszczeNastepni.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708251738248_KolejniGracze.resx">
-      <DependentUpon>201708251738248_KolejniGracze.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708251749523_MakeRequiredFieldsInTeamAndPlayer.resx">
-      <DependentUpon>201708251749523_MakeRequiredFieldsInTeamAndPlayer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708251750291_WynikOstatniegoMeczu.resx">
-      <DependentUpon>201708251750291_WynikOstatniegoMeczu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708251753145_ZmianaNazwyPolaFirstTeam.resx">
-      <DependentUpon>201708251753145_ZmianaNazwyPolaFirstTeam.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708251753455_WynikOstatniegoSpotkania.resx">
-      <DependentUpon>201708251753455_WynikOstatniegoSpotkania.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708251757383_ZespolyOstatnieSpotkanie.resx">
-      <DependentUpon>201708251757383_ZespolyOstatnieSpotkanie.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708281646587_Nowa kolumna do Fixture.resx">
-      <DependentUpon>201708281646587_Nowa kolumna do Fixture.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708300536302_Zmiana kolumny w player.resx">
-      <DependentUpon>201708300536302_Zmiana kolumny w player.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
