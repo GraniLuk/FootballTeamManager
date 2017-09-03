@@ -1,43 +1,37 @@
-﻿@model FootballTeamManager.Models.Player
+﻿@model FootballTeamManager.ViewModels.PlayerDisplayViewModel
 
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>model.Name Skill: model.Skill</h2>
 
 <div>
-    <h4>Player</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Skill)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Skill)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Active)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Active)
-        </dd>
-
-    </dl>
+    <h4>Historia spotkań</h4>
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>Fixture</th>
+            <th>First team</th>
+            <th>Second team</th>
+            <th>Score</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var fixture in Model.Fixtures)
+        {
+            <tr>
+                <td>@fixture.Date</td>
+                <td>@fixture.FirstTeam.Name</td>
+                <td>@fixture.SecondTeam.Name</td>
+                <td>@fixture.FirstTeamScore : @fixture.SecondTeamScore</td>
+            </tr>
+        }
+        </tbody>
+    </table>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Player.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

@@ -212,6 +212,7 @@
     <Compile Include="Models\TeamPlayerAssociation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\PlayerDisplayViewModel.cs" />
     <Compile Include="ViewModels\Ranking.cs" />
     <Compile Include="ViewModels\TeamDisplayViewModel.cs" />
   </ItemGroup>

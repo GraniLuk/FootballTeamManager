@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FootballTeamManager.Models;
+using FootballTeamManager.ViewModels;
 
 namespace FootballTeamManager.Controllers
 {
@@ -27,12 +28,22 @@ namespace FootballTeamManager.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Player player = db.Players.Find(id);
-            if (player == null)
+            PlayerDisplayViewModel playerDisplayViewModel = new PlayerDisplayViewModel();
+            playerDisplayViewModel.Player = db.Players.Find(id);
+
+            var playerTeams = db.TeamPlayerAssociations.Where(team => team.Player.Id == id);
+
+            var fixtures = db.Fixtures.Include(t => t.FirstTeam).Include(x => x.SecondTeam)
+                .Where(fixture => fixture.FirstTeam.Id == id || fixture.SecondTeam.Id == id);
+            
+
+            playerDisplayViewModel.Fixtures = fixtures.ToList();
+
+            if (playerDisplayViewModel.Player == null)
             {
                 return HttpNotFound();
             }
-            return View(player);
+            return View(playerDisplayViewModel);
         }
 
         // GET: Players/Create
