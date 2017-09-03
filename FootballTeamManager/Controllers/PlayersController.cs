@@ -31,11 +31,13 @@ namespace FootballTeamManager.Controllers
             PlayerDisplayViewModel playerDisplayViewModel = new PlayerDisplayViewModel();
             playerDisplayViewModel.Player = db.Players.Find(id);
 
-            var playerTeams = db.TeamPlayerAssociations.Where(team => team.Player.Id == id);
+            var playerTeams = db.TeamPlayerAssociations.Where(team => team.Player.Id == id).Select(x => x.Team.Id)
+                .ToList();
 
-            var fixtures = db.Fixtures.Include(t => t.FirstTeam).Include(x => x.SecondTeam)
-                .Where(fixture => fixture.FirstTeam.Id == id || fixture.SecondTeam.Id == id);
-            
+            var fixtures = db.Fixtures
+                .Include(t=>t.FirstTeam)
+                .Include(t=>t.SecondTeam)
+                .Where(t => playerTeams.Contains(t.FirstTeam.Id) || playerTeams.Contains(t.SecondTeam.Id));
 
             playerDisplayViewModel.Fixtures = fixtures.ToList();
 
