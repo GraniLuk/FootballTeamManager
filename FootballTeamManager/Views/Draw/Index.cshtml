@@ -1,0 +1,42 @@
+﻿@using System.Web.Configuration
+@*@model IEnumerable<FootballTeamManager.Models.Draw>*@
+@{
+    ViewBag.Title = "Losowanie";
+}
+
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+   
+
+    <script type="text/javascript">
+        window.onload = function(){
+            window.displayImgCount = 0;
+            function cycleImage(){
+                if (displayImgCount != 0) {
+                    document.getElementById("player" + displayImgCount).style.display = "none";
+                }
+                displayImgCount = displayImgCount === 3 ? 1 : displayImgCount + 1;
+                document.getElementById("player" + displayImgCount).style.display = "block";
+                setTimeout(cycleImage, 1000);
+            }
+            cycleImage();
+        }
+    </script>
+   
+    <div class="containerdiv">
+
+        <img class="imgA1"  src="~/Content/themes/base/images/Pitch.png">
+        <img class="imgB1" id="player1" src="~/Content/themes/base/images/player.png">
+        <img class="imgB2" id="player2" src="~/Content/themes/base/images/player.png">
+        <img class="imgB3" id="player3" src="~/Content/themes/base/images/player.png">
+        </div>
+
+</body>
+    </html>
+
+
+
