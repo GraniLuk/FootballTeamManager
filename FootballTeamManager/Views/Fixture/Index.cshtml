@@ -13,6 +13,7 @@
     <th>First team</th>
     <th>Second team</th>
     <th>Score</th>
+    <th></th>
 </tr>
 </thead>
 <tbody>
@@ -23,7 +24,10 @@
         <td>@fixture.FirstTeam.Name</td>
         <td>@fixture.SecondTeam.Name</td>
         <td>@fixture.FirstTeamScore : @fixture.SecondTeamScore</td>
-        <td>@Html.ActionLink("Edit","Edit",new {id = fixture.Id})</td>
+        <td>
+        @Html.ActionLink("Edit", "Edit", new { id= fixture.Id }) |
+        @Html.ActionLink("Details", "Details", new { id= fixture.Id }) 
+        </td>
     </tr>
 }
 </tbody>

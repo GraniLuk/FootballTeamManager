@@ -6,6 +6,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FootballTeamManager.Models;
+using FootballTeamManager.ViewModels;
 
 namespace FootballTeamManager.Controllers
 {
@@ -40,6 +41,39 @@ namespace FootballTeamManager.Controllers
             }
 
             return View(fixture);
+        }
+
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var fixture = _context.Fixtures.Include(x=>x.FirstTeam).Include(x=>x.SecondTeam).Single(x => x.Id == id);
+
+            var fixtureDisplayViewModel = new FixtureDisplayViewModel
+            {
+                Date = fixture.Date,
+                FirstTeamScore = fixture.FirstTeamScore,
+                SecondTeamScore = fixture.SecondTeamScore,
+                FirstTeamPlayers = (from playerAssign in _context.TeamPlayerAssociations
+                join player in _context.Players on playerAssign.Player.Id equals player.Id
+                where playerAssign.Team.Id == fixture.FirstTeam.Id
+                select player).ToList(),
+                SecondTeamPlayers = (from playerAssign in _context.TeamPlayerAssociations
+                    join player in _context.Players on playerAssign.Player.Id equals player.Id
+                    where playerAssign.Team.Id == fixture.SecondTeam.Id
+                    select player).ToList()
+
+        };
+
+
+            if (fixture.FirstTeam == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(fixtureDisplayViewModel);
         }
 
         public ActionResult New()
