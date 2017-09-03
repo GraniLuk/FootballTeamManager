@@ -23,6 +23,7 @@
         <td>@fixture.FirstTeam.Name</td>
         <td>@fixture.SecondTeam.Name</td>
         <td>@fixture.FirstTeamScore : @fixture.SecondTeamScore</td>
+        <td>@Html.ActionLink("Edit","Edit",new {id = fixture.Id})</td>
     </tr>
 }
 </tbody>
