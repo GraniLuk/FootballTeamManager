@@ -24,7 +24,7 @@ namespace FootballTeamManager.ViewModels
             foreach (var rank in from name in players
                                  let skill = name.Skill
                                  orderby skill descending
-                                 select new Result { PlayerName = name.Name, Rank = r++, Skill = skill })
+                                 select new Result { PlayerName = name.Name, PlayerId = name.Id, Rank = r++, Skill = skill })
             {
                 if (lastSkill == rank.Skill)
                 {
@@ -40,6 +40,7 @@ namespace FootballTeamManager.ViewModels
     public class Result
     {
         public string PlayerName;
+        public int PlayerId { get; set; }
         public int Skill;
         public int Rank;
     }

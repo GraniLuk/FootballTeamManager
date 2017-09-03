@@ -4,13 +4,25 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Ranking</h2>
 
-@foreach (var item in Model.RankingList)
-{
-    <div>
-     @item.Rank . @item.PlayerName @item.Skill
-        <hr />
-    </div>
-}
+<table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>Miejsce</th>
+        <th>Zawodnik</th>
+        <th>Skill</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var player in Model.RankingList)
+    {
+        <tr>
+            <td>@player.Rank</td>
+            <td>@Html.ActionLink(player.PlayerName, "Details", "Players", new { Id = player.PlayerId }, null)</td>
+            <td>@player.Skill</td>
+        </tr>
+    }
+    </tbody>
+</table>
 
