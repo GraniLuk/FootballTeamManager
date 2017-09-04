@@ -1,4 +1,4 @@
-﻿@model FootballTeamManager.ViewModels.Ranking
+﻿@model IEnumerable<FootballTeamManager.Models.Ranking>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -11,16 +11,24 @@
     <tr>
         <th>Miejsce</th>
         <th>Zawodnik</th>
+        <th>Mecze</th>
+        <th>Wygrane</th>
+        <th>Remisy</th>
+        <th>Porażki</th>
         <th>Skill</th>
     </tr>
     </thead>
     <tbody>
-    @foreach (var player in Model.RankingList)
+    @foreach (var player in Model)
     {
         <tr>
-            <td>@player.Rank</td>
-            <td>@Html.ActionLink(player.PlayerName, "Details", "Players", new { Id = player.PlayerId }, null)</td>
-            <td>@player.Skill</td>
+            <td>@player.Place</td>
+            <td>@Html.ActionLink(player.Player.Name, "Details", "Players", new { Id = player.Player }, null)</td>
+            <td>@player.Matches</td>
+            <td>@player.Wins</td>
+            <td>@player.Draws</td>
+            <td>@player.Loses</td>
+            <td>@player.Player.Skill</td>
         </tr>
     }
     </tbody>

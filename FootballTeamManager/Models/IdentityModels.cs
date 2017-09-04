@@ -26,6 +26,7 @@ namespace FootballTeamManager.Models
         public DbSet<Player> Players { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<TeamPlayerAssociation> TeamPlayerAssociations { get; set; }
+        public DbSet<Ranking> Ranking { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

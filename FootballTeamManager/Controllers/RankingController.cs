@@ -2,6 +2,8 @@
 using FootballTeamManager.ViewModels;
 using System.Linq;
 using System.Web.Mvc;
+using System.Data.Entity;
+
 
 namespace FootballTeamManager.Controllers
 {
@@ -11,8 +13,8 @@ namespace FootballTeamManager.Controllers
         // GET: Ranking
         public ActionResult Index()
         {
-            var players = db.Players.ToList();
-            var ranking = new Ranking(players);
+
+            var ranking = db.Ranking.Include(x=>x.Player).OrderByDescending(x=>x.Wins).ToList();
             return View(ranking);
         }
 

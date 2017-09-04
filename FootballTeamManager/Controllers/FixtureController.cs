@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using FootballTeamManager.Models;
 using FootballTeamManager.ViewModels;
+using AutoMapper;
 
 namespace FootballTeamManager.Controllers
 {
@@ -41,6 +42,27 @@ namespace FootballTeamManager.Controllers
             }
 
             return View(fixture);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Fixture fixture)
+        {
+            if (ModelState.IsValid)
+            {
+                Mapper.Initialize(cfg=>cfg.CreateMap<Fixture,Fixture>());
+                var fixtureFromDb = _context.Fixtures.Single(x => x.Id == fixture.Id);
+                Mapper.Map(fixture, fixtureFromDb);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+
+            if (fixture == null)
+            {
+                return HttpNotFound();
+            }
+
+               return View(fixture);
         }
 
         public ActionResult Details(int? id)

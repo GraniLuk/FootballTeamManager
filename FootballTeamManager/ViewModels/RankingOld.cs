@@ -6,9 +6,9 @@ using System.Web;
 
 namespace FootballTeamManager.ViewModels
 {
-    public class Ranking
+    public class RankingOld
     {
-        public Ranking(List<Player> players)
+        public RankingOld(List<Player> players)
         {
             RankingList = GetResults(players);
         }

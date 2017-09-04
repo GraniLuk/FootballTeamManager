@@ -10,7 +10,7 @@ namespace FootballTeamManager.Models
         public int Id { get; set; }
         [Required]
         [Display(Name = "Data")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "0:dd/MMM/yyyy")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Date { get; set; }
         public Team FirstTeam { get; set; }
         public Team SecondTeam { get; set; }

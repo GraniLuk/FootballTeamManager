@@ -46,6 +46,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -203,6 +207,22 @@
     <Compile Include="Migrations\201709010532284_init.Designer.cs">
       <DependentUpon>201709010532284_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709041330142_TabelaRanking.cs" />
+    <Compile Include="Migrations\201709041330142_TabelaRanking.Designer.cs">
+      <DependentUpon>201709041330142_TabelaRanking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709041334285_DodajeDateDoRankingu.cs" />
+    <Compile Include="Migrations\201709041334285_DodajeDateDoRankingu.Designer.cs">
+      <DependentUpon>201709041334285_DodajeDateDoRankingu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709041350350_DodajeKolumnePlaceDoRankingu.cs" />
+    <Compile Include="Migrations\201709041350350_DodajeKolumnePlaceDoRankingu.Designer.cs">
+      <DependentUpon>201709041350350_DodajeKolumnePlaceDoRankingu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709041356580_ZmiananazwykolumnyzPlayerIdnaPlayer.cs" />
+    <Compile Include="Migrations\201709041356580_ZmiananazwykolumnyzPlayerIdnaPlayer.Designer.cs">
+      <DependentUpon>201709041356580_ZmiananazwykolumnyzPlayerIdnaPlayer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Fixture.cs" />
@@ -215,7 +235,8 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\FixtureDisplayViewModel.cs" />
     <Compile Include="ViewModels\PlayerDisplayViewModel.cs" />
-    <Compile Include="ViewModels\Ranking.cs" />
+    <Compile Include="ViewModels\RankingOld.cs" />
+    <Compile Include="Models\Ranking.cs" />
     <Compile Include="ViewModels\TeamDisplayViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -350,6 +371,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201709010532284_init.resx">
       <DependentUpon>201709010532284_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709041330142_TabelaRanking.resx">
+      <DependentUpon>201709041330142_TabelaRanking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709041334285_DodajeDateDoRankingu.resx">
+      <DependentUpon>201709041334285_DodajeDateDoRankingu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709041350350_DodajeKolumnePlaceDoRankingu.resx">
+      <DependentUpon>201709041350350_DodajeKolumnePlaceDoRankingu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709041356580_ZmiananazwykolumnyzPlayerIdnaPlayer.resx">
+      <DependentUpon>201709041356580_ZmiananazwykolumnyzPlayerIdnaPlayer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
