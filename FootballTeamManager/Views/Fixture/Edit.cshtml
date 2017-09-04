@@ -1,16 +1,18 @@
 ﻿@model FootballTeamManager.Models.Fixture
 
 @{
-    ViewBag.Title = "View";
+    ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<h2>Edit</h2>
 
 <h2>View</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Mecz</h4>
         <hr />
