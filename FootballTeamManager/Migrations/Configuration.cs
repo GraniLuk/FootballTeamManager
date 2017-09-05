@@ -10,6 +10,7 @@ namespace FootballTeamManager.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(FootballTeamManager.Models.ApplicationDbContext context)
