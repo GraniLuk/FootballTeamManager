@@ -6,7 +6,7 @@
 
 <h2>Ranking</h2>
 
-<table class="table table-bordered table-hover">
+<table id="ranking" class="table table-bordered table-hover">
     <thead>
     <tr>
         <th>Miejsce</th>
@@ -33,4 +33,13 @@
     }
     </tbody>
 </table>
+
+@section scripts
+{
+<script>
+  $(function(){
+    $("#ranking").dataTable();
+  })
+</script>
+    }
 
