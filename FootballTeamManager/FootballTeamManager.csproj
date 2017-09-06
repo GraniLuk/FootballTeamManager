@@ -223,6 +223,14 @@
     <Compile Include="Migrations\201709041356580_ZmiananazwykolumnyzPlayerIdnaPlayer.Designer.cs">
       <DependentUpon>201709041356580_ZmiananazwykolumnyzPlayerIdnaPlayer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709060508028_DataWycofaniaDoRankingu.cs" />
+    <Compile Include="Migrations\201709060508028_DataWycofaniaDoRankingu.Designer.cs">
+      <DependentUpon>201709060508028_DataWycofaniaDoRankingu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709060510179_DataUsunieciaMusiBycNullable.cs" />
+    <Compile Include="Migrations\201709060510179_DataUsunieciaMusiBycNullable.Designer.cs">
+      <DependentUpon>201709060510179_DataUsunieciaMusiBycNullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Fixture.cs" />
@@ -619,6 +627,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709041356580_ZmiananazwykolumnyzPlayerIdnaPlayer.resx">
       <DependentUpon>201709041356580_ZmiananazwykolumnyzPlayerIdnaPlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709060508028_DataWycofaniaDoRankingu.resx">
+      <DependentUpon>201709060508028_DataWycofaniaDoRankingu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709060510179_DataUsunieciaMusiBycNullable.resx">
+      <DependentUpon>201709060510179_DataUsunieciaMusiBycNullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

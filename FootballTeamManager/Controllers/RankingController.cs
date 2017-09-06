@@ -14,7 +14,7 @@ namespace FootballTeamManager.Controllers
         public ActionResult Index()
         {
 
-            var ranking = db.Ranking.Include(x=>x.Player).OrderByDescending(x=>x.Wins).ToList();
+            var ranking = db.Ranking.Include(x=>x.Player).Where(x=>x.RemoveDate ==null).OrderByDescending(x=>x.Wins).ToList();
             return View(ranking);
         }
 

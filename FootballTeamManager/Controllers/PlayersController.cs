@@ -37,7 +37,8 @@ namespace FootballTeamManager.Controllers
             var fixtures = db.Fixtures
                 .Include(t=>t.FirstTeam)
                 .Include(t=>t.SecondTeam)
-                .Where(t => playerTeams.Contains(t.FirstTeam.Id) || playerTeams.Contains(t.SecondTeam.Id));
+                .Where(t => playerTeams.Contains(t.FirstTeam.Id) || playerTeams.Contains(t.SecondTeam.Id))
+                .OrderByDescending(t=>t.Date);
 
             playerDisplayViewModel.Fixtures = fixtures.ToList();
 

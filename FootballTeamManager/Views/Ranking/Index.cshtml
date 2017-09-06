@@ -23,7 +23,7 @@
     {
         <tr>
             <td>@player.Place</td>
-            <td>@Html.ActionLink(player.Player.Name, "Details", "Players", new { Id = player.Player }, null)</td>
+            <td>@Html.ActionLink(player.Player.Name, "Details", "Players", new { Id = player.Player.Id }, null)</td>
             <td>@player.Matches</td>
             <td>@player.Wins</td>
             <td>@player.Draws</td>
