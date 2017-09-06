@@ -35,12 +35,14 @@ img {
   z-index: 3;
   top: 450px;
   left: 120px;
+  display:none;
 
 }
 .imgB2 {
   z-index: 3;
   top: 450px;
   left: 300px;
+  display:none;
  
 }
 
@@ -48,6 +50,7 @@ img {
   z-index: 3;
   top: 150px;
   left: 200px;
+  display:none;
 
 }
 .containerdiv {

@@ -12,28 +12,44 @@
 <body>
    
 
-    <script type="text/javascript">
-        window.onload = function(){
-            window.displayImgCount = 0;
-            function cycleImage(){
-                if (displayImgCount != 0) {
-                    document.getElementById("player" + displayImgCount).style.display = "none";
-                }
-                displayImgCount = displayImgCount === 3 ? 1 : displayImgCount + 1;
-                document.getElementById("player" + displayImgCount).style.display = "block";
-                setTimeout(cycleImage, 1000);
+
+  
+
+        <script type="text/javascript">
+
+          
+
+            window.onload = function(){
+             //debugger;
+                window.displayCOUNTER = 1;
+                function cycleImage() {
+                    displayImgCount = displayCOUNTER;
+
+                    document.getElementById("player" + displayImgCount).style.display = "block";
+                    document.getElementById("player" + displayImgCount).overlay = "text:aaaa";
+                        displayCOUNTER++;
+                        setTimeout(cycleImage, 1500);
+                 }
+                cycleImage();
+
             }
-            cycleImage();
-        }
-    </script>
+            while (displayCOUNTER != 4) {
+
+                cycleImage();
+               
+            }
+
+ 
+        </script>
    
     <div class="containerdiv">
 
         <img class="imgA1"  src="~/Content/themes/base/images/Pitch.png">
-        <img class="imgB1" id="player1" src="~/Content/themes/base/images/player.png">
-        <img class="imgB2" id="player2" src="~/Content/themes/base/images/player.png">
-        <img class="imgB3" id="player3" src="~/Content/themes/base/images/player.png">
+        <img class="imgB1" id="player1" src="~/Content/themes/base/images/Chelsea-Home-icon.png">
+        <img class="imgB2" id="player2" src="~/Content/themes/base/images/Chelsea-Home-icon.png">
+        <img class="imgB3" id="player3" src="~/Content/themes/base/images/Chelsea-Home-icon.png">
         </div>
+
 
 </body>
     </html>
