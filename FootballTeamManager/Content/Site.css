@@ -28,8 +28,9 @@ img {
   top: 25px;
   left: 25px;
 }
-.imgA1 {
+.boisko {
   z-index: 1;
+   position: relative;
 }
 .imgB1 {
   z-index: 3;
@@ -58,3 +59,36 @@ img {
   float: initial;
   position: relative;
 } 
+
+.tekst_koszulka1 {
+position: absolute;
+ z-index: 3;
+top: 480px;
+left: 160px;
+font-weight: bold;
+ font-size: 120%;
+   display:none;
+   color:black;
+}
+
+.tekst_koszulka2 {
+position: absolute;
+ z-index: 3;
+top: 480px;
+left: 340px;
+font-weight: bold;
+ font-size: 110%;
+   display:none;
+   color:black;
+}
+
+.tekst_koszulka3 {
+position: absolute;
+ z-index: 3;
+top: 180px;
+left: 238px;
+font-weight: bold;
+ font-size: 110%;
+   display:none;
+   color:black;
+}

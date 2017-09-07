@@ -26,7 +26,7 @@
                     displayImgCount = displayCOUNTER;
 
                     document.getElementById("player" + displayImgCount).style.display = "block";
-                    document.getElementById("player" + displayImgCount).overlay = "text:aaaa";
+                    document.getElementById("tekst" + displayImgCount).style.display = "block";
                         displayCOUNTER++;
                         setTimeout(cycleImage, 1500);
                  }
@@ -42,15 +42,20 @@
  
         </script>
    
+   
     <div class="containerdiv">
 
-        <img class="imgA1"  src="~/Content/themes/base/images/Pitch.png">
-        <img class="imgB1" id="player1" src="~/Content/themes/base/images/Chelsea-Home-icon.png">
-        <img class="imgB2" id="player2" src="~/Content/themes/base/images/Chelsea-Home-icon.png">
-        <img class="imgB3" id="player3" src="~/Content/themes/base/images/Chelsea-Home-icon.png">
+        <img class="boisko"  src="~/Content/themes/base/images/Pitch.png">
+        <img class="imgB1" id="player1" src="https://cdn0.iconfinder.com/data/icons/england/154/england-sport-wear-shirt-uniform-football-128.png">
+       
+        <img class="imgB2" id="player2" src="https://cdn0.iconfinder.com/data/icons/england/154/england-sport-wear-shirt-uniform-football-128.png">     
+        <img class="imgB3" id="player3"  src="https://cdn0.iconfinder.com/data/icons/england/154/england-sport-wear-shirt-uniform-football-128.png">   
+        <p class="tekst_koszulka1" id="tekst1">Jarek</p>
+        <p class="tekst_koszulka2" id="tekst2">Lukasz</p>
+        <p class="tekst_koszulka3" id="tekst3">Damian</p>
         </div>
-
-
+    @*src="~/Content/themes/base/images/Chelsea-Home-icon.png">*@
+    
 </body>
     </html>
 
