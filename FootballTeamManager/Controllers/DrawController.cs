@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FootballTeamManager.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,14 @@ namespace FootballTeamManager.Controllers
 {
     public class DrawController : Controller
     {
+        
         // GET: Draw
         public ActionResult Index()
         {
-            return View();
+            var a = new Team();
+           
+           
+            return View(a);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿@using System.Web.Configuration
-@*@model IEnumerable<FootballTeamManager.Models.Draw>*@
+@*@model IEnumerable<FootballTeamManager.Models.Team>*@
+@model FootballTeamManager.Models.Team
 @{
     ViewBag.Title = "Losowanie";
 }
@@ -42,7 +43,7 @@
  
         </script>
    
-   
+  
     <div class="containerdiv">
 
         <img class="boisko"  src="~/Content/themes/base/images/Pitch.png">
@@ -50,11 +51,47 @@
        
         <img class="imgB2" id="player2" src="https://cdn0.iconfinder.com/data/icons/england/154/england-sport-wear-shirt-uniform-football-128.png">     
         <img class="imgB3" id="player3"  src="https://cdn0.iconfinder.com/data/icons/england/154/england-sport-wear-shirt-uniform-football-128.png">   
-        <p class="tekst_koszulka1" id="tekst1">Jarek</p>
-        <p class="tekst_koszulka2" id="tekst2">Lukasz</p>
-        <p class="tekst_koszulka3" id="tekst3">Damian</p>
-        </div>
+      
+   
+        <p class="tekst_koszulka1" id="tekst1">@Model.GetPlayerFromFirstTeam(1)</p>
+        <p class="tekst_koszulka2" id="tekst2">@Model.GetPlayerFromFirstTeam(2)</p>
+        <p class="tekst_koszulka3" id="tekst3">@Model.GetPlayerFromFirstTeam(3)</p >
+
+        </ div >
     @*src="~/Content/themes/base/images/Chelsea-Home-icon.png">*@
+
+
+    @*<table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Skill</th>
+                <th>team</th>
+                <th>id</th>
+                
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var fixture in Model)
+            {
+                <tr>
+                    <td>@fixture.Name</td>
+                    <td>@fixture.Skill</td>
+                    <td>@fixture.TeamNumber</td>
+                    <td>@fixture.Id</td>
+                    
+                    <td>
+                       
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>*@
+
+
+
+
     
 </body>
     </html>
