@@ -9,6 +9,6 @@ namespace FootballTeamManager.ViewModels
     public class PlayerDisplayViewModel
     {
         public Player Player { get; set; }
-        public List<Fixture> Fixtures { get; set; }
+        public List<FixturePlayerDisplayVIewModel> Fixtures { get; set; }
     }
 }

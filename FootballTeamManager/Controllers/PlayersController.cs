@@ -13,7 +13,7 @@ namespace FootballTeamManager.Controllers
 {
     public class PlayersController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private readonly ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Players
         public ActionResult Index()
@@ -28,8 +28,7 @@ namespace FootballTeamManager.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PlayerDisplayViewModel playerDisplayViewModel = new PlayerDisplayViewModel();
-            playerDisplayViewModel.Player = db.Players.Find(id);
+            PlayerDisplayViewModel playerDisplayViewModel = new PlayerDisplayViewModel {Player = db.Players.Find(id)};
 
             var playerTeams = db.TeamPlayerAssociations.Where(team => team.Player.Id == id).Select(x => x.Team.Id)
                 .ToList();
@@ -38,7 +37,15 @@ namespace FootballTeamManager.Controllers
                 .Include(t=>t.FirstTeam)
                 .Include(t=>t.SecondTeam)
                 .Where(t => playerTeams.Contains(t.FirstTeam.Id) || playerTeams.Contains(t.SecondTeam.Id))
-                .OrderByDescending(t=>t.Date);
+                .OrderByDescending(t=>t.Date)
+                .Select(t => new FixturePlayerDisplayVIewModel()
+                           {
+                               Date = t.Date,
+                               FirstTeam = t.FirstTeam,
+                               SecondTeam = t.SecondTeam,
+                               Score = t.FirstTeamScore.ToString() + ":" + t.SecondTeamScore.ToString(),
+                               IsWon = t.FirstTeamScore>t.SecondTeamScore
+                           });
 
             playerDisplayViewModel.Fixtures = fixtures.ToList();
 

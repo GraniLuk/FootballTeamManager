@@ -242,6 +242,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\FixtureDisplayViewModel.cs" />
+    <Compile Include="ViewModels\FixturePlayerDisplayVIewModel.cs" />
     <Compile Include="ViewModels\PlayerDisplayViewModel.cs" />
     <Compile Include="ViewModels\RankingOld.cs" />
     <Compile Include="Models\Ranking.cs" />

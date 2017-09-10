@@ -22,11 +22,11 @@
         <tbody>
         @foreach (var fixture in Model.Fixtures)
         {
-            <tr>
-                <td>@fixture.Date</td>
+            <tr >
+                <td class= "@GetClassFromLevel(fixture.IsWon)">@fixture.Date</td>
                 <td>@fixture.FirstTeam.Name</td>
                 <td>@fixture.SecondTeam.Name</td>
-                <td>@fixture.FirstTeamScore : @fixture.SecondTeamScore</td>
+                <td>@fixture.Score</td>
             </tr>
         }
         </tbody>
@@ -36,3 +36,10 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.Player.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+@functions{ 
+    public string GetClassFromLevel(bool isWon)
+    {
+        return isWon ? "wonMatch" : "lostMatch";
+    }
+}
