@@ -281,10 +281,3 @@ font-weight: bold;
    display:none;
    color:black;
 }
-
-.lostMatch {
-    color: red;
-}
-.wonMatch {
-    color: green;
-}

@@ -113,7 +113,7 @@ namespace FootballTeamManager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Skill,Active")] Player player)
+        public ActionResult Edit([Bind(Include = "Id,Name,Skill,Active,ShortName")] Player player)
         {
             if (ModelState.IsValid)
             {
