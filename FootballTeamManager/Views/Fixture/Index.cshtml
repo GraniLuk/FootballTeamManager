@@ -21,8 +21,8 @@
 {
     <tr>
         <td>@fixture.Date</td>
-        <td>@fixture.FirstTeam.Name</td>
-        <td>@fixture.SecondTeam.Name</td>
+        <td>@Html.ActionLink(fixture.FirstTeam.Name, "Details", "Team", new { Id = fixture.FirstTeam.Id }, null)</td>
+        <td>@Html.ActionLink(fixture.SecondTeam.Name, "Details", "Team", new { Id = fixture.SecondTeam.Id }, null)</td>
         <td>@fixture.FirstTeamScore : @fixture.SecondTeamScore</td>
         <td>
         @Html.ActionLink("Edit", "Edit", new { id= fixture.Id }) |

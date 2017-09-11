@@ -1,0 +1,29 @@
+﻿@model FootballTeamManager.ViewModels.TeamDisplayViewModel
+
+@{
+    ViewBag.Title = "Szczegóły drużyny";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Zawodnicy:</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Zawodnik</th>
+            <th>Skill</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var player in Model.Players)
+        {
+            <tr>
+                <td>@Html.ActionLink(player.Name, "Details", "Players", new { Id = player.Id }, null)</td>
+                <td>@player.Skill</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+

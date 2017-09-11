@@ -11,7 +11,7 @@ using FootballTeamManager.ViewModels;
 
 namespace FootballTeamManager.Controllers
 {
-    public class PlayersController : Controller
+    public class PlayerController : Controller
     {
         private readonly ApplicationDbContext db = new ApplicationDbContext();
 
