@@ -28,16 +28,15 @@ namespace FootballTeamManager.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PlayerDisplayViewModel playerDisplayViewModel = new PlayerDisplayViewModel {Player = db.Players.Find(id)};
+            var playerDisplayViewModel = new PlayerDisplayViewModel {Player = db.Players.Find(id)};
 
             var playerTeams = db.TeamPlayerAssociations.Where(team => team.Player.Id == id).Select(x => x.Team.Id)
                 .ToList();
 
-            var fixtures = db.Fixtures
+            var fixturesInFirstTeam = db.Fixtures
                 .Include(t=>t.FirstTeam)
                 .Include(t=>t.SecondTeam)
-                .Where(t => playerTeams.Contains(t.FirstTeam.Id) || playerTeams.Contains(t.SecondTeam.Id))
-                .OrderByDescending(t=>t.Date)
+                .Where(t => playerTeams.Contains(t.FirstTeam.Id))
                 .Select(t => new FixturePlayerDisplayVIewModel()
                            {
                                Date = t.Date,
@@ -46,6 +45,21 @@ namespace FootballTeamManager.Controllers
                                Score = t.FirstTeamScore.ToString() + ":" + t.SecondTeamScore.ToString(),
                                IsWon = t.FirstTeamScore>t.SecondTeamScore
                            });
+
+           var fixturesInSecondTeam = db.Fixtures
+          .Include(t => t.FirstTeam)
+          .Include(t => t.SecondTeam)
+          .Where(t => playerTeams.Contains(t.SecondTeam.Id))
+          .Select(t => new FixturePlayerDisplayVIewModel()
+          {
+              Date = t.Date,
+              FirstTeam = t.FirstTeam,
+              SecondTeam = t.SecondTeam,
+              Score = t.FirstTeamScore.ToString() + ":" + t.SecondTeamScore.ToString(),
+              IsWon = t.FirstTeamScore < t.SecondTeamScore
+          });
+
+            var fixtures = fixturesInFirstTeam.Concat(fixturesInSecondTeam).OrderByDescending(x=>x.Date);
 
             playerDisplayViewModel.Fixtures = fixtures.ToList();
 

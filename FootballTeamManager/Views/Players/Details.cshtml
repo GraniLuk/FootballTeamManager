@@ -22,8 +22,8 @@
         <tbody>
         @foreach (var fixture in Model.Fixtures)
         {
-            <tr >
-                <td class= "@GetClassFromLevel(fixture.IsWon)">@fixture.Date</td>
+            <tr class= "@GetClassFromLevel(fixture.IsWon)">
+                <td>@fixture.Date</td>
                 <td>@fixture.FirstTeam.Name</td>
                 <td>@fixture.SecondTeam.Name</td>
                 <td>@fixture.Score</td>

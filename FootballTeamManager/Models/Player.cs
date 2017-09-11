@@ -20,9 +20,9 @@ namespace FootballTeamManager.Models
         public int Skill { get; set; }
         [Required]
         public bool Active { get; set; }
-        //[Required]
-        //[StringLength(30)]
-      //  public string ShortName { get; set; }
+        [Required]
+        [StringLength(7)]
+        public string ShortName { get; set; }
         public Int16 TeamNumber { get; set; }
 
         private List<Player> _team;
