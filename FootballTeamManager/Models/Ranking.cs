@@ -14,6 +14,5 @@ namespace FootballTeamManager.Models
         public int Loses { get; set; }
         public int Place { get; set; }
         public DateTime? RemoveDate { get; set; }
-
     }
 }

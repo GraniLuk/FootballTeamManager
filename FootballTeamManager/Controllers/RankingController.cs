@@ -9,12 +9,12 @@ namespace FootballTeamManager.Controllers
 {
     public class RankingController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private readonly ApplicationDbContext _db = new ApplicationDbContext();
         // GET: Ranking
         public ActionResult Index()
         {
+            var ranking = _db.Ranking.Include(x=>x.Player).Where(x=>x.RemoveDate ==null).OrderByDescending(x=>x.Wins).Select(x => new RankingDisplayViewModel(){PlayerRanking = x,Player = x.Player, Change = Change.Increase}).ToList();
 
-            var ranking = db.Ranking.Include(x=>x.Player).Where(x=>x.RemoveDate ==null).OrderByDescending(x=>x.Wins).ToList();
             return View(ranking);
         }
 
@@ -93,7 +93,7 @@ namespace FootballTeamManager.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                _db.Dispose();
             }
             base.Dispose(disposing);
         }

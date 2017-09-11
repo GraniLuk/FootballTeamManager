@@ -13,12 +13,12 @@ namespace FootballTeamManager.Controllers
 {
     public class PlayerController : Controller
     {
-        private readonly ApplicationDbContext db = new ApplicationDbContext();
+        private readonly ApplicationDbContext _db = new ApplicationDbContext();
 
         // GET: Players
         public ActionResult Index()
         {
-            return View(db.Players.ToList());
+            return View(_db.Players.ToList());
         }
 
         // GET: Players/Details/5
@@ -28,12 +28,12 @@ namespace FootballTeamManager.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var playerDisplayViewModel = new PlayerDisplayViewModel {Player = db.Players.Find(id)};
+            var playerDisplayViewModel = new PlayerDisplayViewModel {Player = _db.Players.Find(id)};
 
-            var playerTeams = db.TeamPlayerAssociations.Where(team => team.Player.Id == id).Select(x => x.Team.Id)
+            var playerTeams = _db.TeamPlayerAssociations.Where(team => team.Player.Id == id).Select(x => x.Team.Id)
                 .ToList();
 
-            var fixturesInFirstTeam = db.Fixtures
+            var fixturesInFirstTeam = _db.Fixtures
                 .Include(t=>t.FirstTeam)
                 .Include(t=>t.SecondTeam)
                 .Where(t => playerTeams.Contains(t.FirstTeam.Id))
@@ -46,7 +46,7 @@ namespace FootballTeamManager.Controllers
                                IsWon = t.FirstTeamScore>t.SecondTeamScore
                            });
 
-           var fixturesInSecondTeam = db.Fixtures
+           var fixturesInSecondTeam = _db.Fixtures
           .Include(t => t.FirstTeam)
           .Include(t => t.SecondTeam)
           .Where(t => playerTeams.Contains(t.SecondTeam.Id))
@@ -81,12 +81,12 @@ namespace FootballTeamManager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Skill,Active")] Player player)
+        public ActionResult Create([Bind(Include = "Id,Name,Skill,Active,ShortName")] Player player)
         {
             if (ModelState.IsValid)
             {
-                db.Players.Add(player);
-                db.SaveChanges();
+                _db.Players.Add(player);
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
@@ -100,7 +100,7 @@ namespace FootballTeamManager.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Player player = db.Players.Find(id);
+            var player = _db.Players.Find(id);
             if (player == null)
             {
                 return HttpNotFound();
@@ -115,13 +115,10 @@ namespace FootballTeamManager.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Name,Skill,Active,ShortName")] Player player)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(player).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(player);
+            if (!ModelState.IsValid) return View(player);
+            _db.Entry(player).State = EntityState.Modified;
+            _db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         // GET: Players/Delete/5
@@ -131,7 +128,7 @@ namespace FootballTeamManager.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Player player = db.Players.Find(id);
+            var player = _db.Players.Find(id);
             if (player == null)
             {
                 return HttpNotFound();
@@ -144,9 +141,9 @@ namespace FootballTeamManager.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Player player = db.Players.Find(id);
-            db.Players.Remove(player);
-            db.SaveChanges();
+            Player player = _db.Players.Find(id);
+            _db.Players.Remove(player);
+            _db.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -154,7 +151,7 @@ namespace FootballTeamManager.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                _db.Dispose();
             }
             base.Dispose(disposing);
         }

@@ -249,8 +249,8 @@
     <Compile Include="ViewModels\FixtureDisplayViewModel.cs" />
     <Compile Include="ViewModels\FixturePlayerDisplayVIewModel.cs" />
     <Compile Include="ViewModels\PlayerDisplayViewModel.cs" />
-    <Compile Include="ViewModels\RankingOld.cs" />
     <Compile Include="Models\Ranking.cs" />
+    <Compile Include="ViewModels\RankingDisplayViewModel.cs" />
     <Compile Include="ViewModels\TeamDisplayViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -413,6 +413,7 @@
     <Content Include="Content\DataTables\images\sort_desc.png" />
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
+    <Content Include="Content\Images\down-arrow-red.png" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
