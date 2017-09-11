@@ -18,31 +18,32 @@
 
         <script type="text/javascript">
 
-          
-
-            window.onload = function(){
-             //debugger;
-                window.displayCOUNTER = 1;
-                function cycleImage() {
-                    displayImgCount = displayCOUNTER;
-
-                    document.getElementById("player" + displayImgCount).style.display = "block";
-                    document.getElementById("tekst" + displayImgCount).style.display = "block";
-                        displayCOUNTER++;
-                        setTimeout(cycleImage, 1000);
-                 }
-                cycleImage();
-
-            }
-            while (displayCOUNTER != 12) {
-
-                cycleImage();
-               
-            }
-
+           window.onload = function(){
+                //debugger;
+                                       window.displayCOUNTER = 1;
+                                            function cycleImage() {
+                                                                    displayImgCount = displayCOUNTER;
  
+                                                                    document.getElementById("player" + displayImgCount).style.display = "block";
+                                                                    document.getElementById("tekst" + displayImgCount).style.display = "block";
+                                                                    displayCOUNTER++;
+                   
+                                                                    if (displayCOUNTER <= @Model.GetNumberOfPlayer())
+                                                                    {
+                                                                        setTimeout(cycleImage, 1000); 
+                                                                    }
+                                                                 }
+                                            if (displayCOUNTER != 15) {
+
+                                                cycleImage();
+  
+                                                 }
+
+                                        }
+         
         </script>
    
+    @*<button onclick="run">aaaa</button>*@
   
     <div class="containerdiv">
 
