@@ -112,7 +112,7 @@ namespace FootballTeamManager.Models
 
         public string GetNumberOfPlayer()
         {
-            return (firstTeam.Count() + secondTeam.Count()).ToString();
+            return (firstTeam.Count + secondTeam.Count).ToString();
         }
 
         public string GetPlayerFromFirstTeam(int id)

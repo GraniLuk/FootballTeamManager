@@ -28,7 +28,7 @@
                                                                     document.getElementById("tekst" + displayImgCount).style.display = "block";
                                                                     displayCOUNTER++;
                    
-                                                                    if (displayCOUNTER <= @Model.GetNumberOfPlayer())
+                                                                    if (displayCOUNTER <= @Model.GetNumberOfPlayer()+ (14 -@Model.GetNumberOfPlayer()) )
                                                                     {
                                                                         setTimeout(cycleImage, 1000); 
                                                                     }
