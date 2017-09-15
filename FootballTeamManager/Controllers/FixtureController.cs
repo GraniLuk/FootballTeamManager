@@ -98,7 +98,7 @@ namespace FootballTeamManager.Controllers
             return View(fixtureDisplayViewModel);
         }
 
-        public ActionResult New()
+        public ActionResult Create()
         {
             return View();
         }

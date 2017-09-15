@@ -1,7 +1,7 @@
 ﻿@model FootballTeamManager.Models.Fixture
 
 @{
-    ViewBag.Title = "New";
+    ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -20,11 +20,14 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Date, "{0:dd/MM/yyyy}", new { @class = "form-control date-picker", type = "datetime" })
+                @Html.TextBoxFor(model => model.Date, "{0:dd/MM/yyyy}", new { @class = "form-control datetimepicker3", type = "datetime" })
                 @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
             </div>
         </div>
             
+        <h3>Inline DateTimePicker</h3>
+        <p><input id="datetimepicker3" type="text" /></p>
+
 
   
 
@@ -37,6 +40,7 @@
 }
 
 
+
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
@@ -45,6 +49,11 @@
 @section scripts
 {
     <!-- Required jQuery and jQuery UI Javascript references -->
+    <script src="~/Scripts/DateTimePicker/jquery.datetimepicker.js"></script>
+    <script src="~/Scripts/DateTimePicker/jquery.datetimepicker.min.js"></script>
+    <script src="~/Scripts/DateTimePicker/jquery.js"></script>
+    <script src="~/Content/jquery.datetimepicker.css"></script>
+    
     <script src="~/Scripts/jquery-1.12.4.min.js"></script>
     <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
     <script type="text/javascript">
