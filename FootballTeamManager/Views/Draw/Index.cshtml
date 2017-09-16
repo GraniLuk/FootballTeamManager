@@ -18,52 +18,51 @@
 
         <script type="text/javascript">
 
-          
-
-            window.onload = function(){
-             //debugger;
-                window.displayCOUNTER = 1;
-                function cycleImage() {
-                    displayImgCount = displayCOUNTER;
-
-                    document.getElementById("player" + displayImgCount).style.display = "block";
-                    document.getElementById("tekst" + displayImgCount).style.display = "block";
-                        displayCOUNTER++;
-                        setTimeout(cycleImage, 1000);
-                 }
-                cycleImage();
-
-            }
-            while (displayCOUNTER != 12) {
-
-                cycleImage();
-               
-            }
-
+           window.onload = function(){
+                //debugger;
+                                       window.displayCOUNTER = 1;
+                                            function cycleImage() {
+                                                                    displayImgCount = displayCOUNTER;
  
+                                                                    document.getElementById("player" + displayImgCount).style.display = "block";
+                                                                    document.getElementById("tekst" + displayImgCount).style.display = "block";
+                                                                    displayCOUNTER++;
+                   
+                                                                    if (displayCOUNTER <= @Model.GetNumberOfPlayer()+ (14 -@Model.GetNumberOfPlayer()) )
+                                                                    {
+                                                                        setTimeout(cycleImage, 1000); 
+                                                                    }
+                                                                 }
+                                            if (displayCOUNTER != 15) {
+
+                                                cycleImage();
+  
+                                                 }
+
+                                        }
+         
         </script>
    
+    @*<button onclick="run">aaaa</button>*@
   
     <div class="containerdiv">
 
         <img class="boisko"  src="~/Content/themes/base/images/pitch.jpg">
-        <img class="imgB1" id="player1" src="https://image.flaticon.com/icons/png/128/107/107499.png">
-       
-        <img class="imgB2" id="player2" src="https://image.flaticon.com/icons/png/128/107/107499.png">     
-        <img class="imgB3" id="player3"  src="https://image.flaticon.com/icons/png/128/107/107499.png">   
-        <img class="imgB4" id="player4" src="https://image.flaticon.com/icons/png/128/107/107499.png">
+        <img class="imgB1" id="player1" src="~/Content/Images/koszulka-czarna.png"> 
+        <img class="imgB2" id="player2" src="~/Content/Images/koszulka-czarna.png"> 
+        <img class="imgB3" id="player3"  src="~/Content/Images/koszulka-czarna.png"> 
+        <img class="imgB4" id="player4" src="~/Content/Images/koszulka-czarna.png"> 
+        <img class="imgB5" id="player5" src="~/Content/Images/koszulka-czarna.png"> 
+        <img class="imgB6" id="player6" src="~/Content/Images/koszulka-czarna.png"> 
+        <img class="imgB7" id="player7" src="~/Content/Images/koszulka-czarna.png"> 
 
-        <img class="imgB5" id="player5" src="https://image.flaticon.com/icons/png/128/107/107499.png">
-        <img class="imgB6" id="player6" src="https://image.flaticon.com/icons/png/128/107/107499.png">  
-        <img class="imgB7" id="player7" src="https://image.flaticon.com/icons/png/128/107/107499.png">  
-
-        <img class="imgB8" id="player8" src="https://cdn0.iconfinder.com/data/icons/england/154/england-sport-wear-shirt-uniform-football-128.png"> 
-        <img class="imgB9" id="player9" src="https://cdn0.iconfinder.com/data/icons/england/154/england-sport-wear-shirt-uniform-football-128.png">  
-        <img class="imgB10" id="player10" src="https://cdn0.iconfinder.com/data/icons/england/154/england-sport-wear-shirt-uniform-football-128.png">  
-        <img class="imgB11" id="player11" src="https://cdn0.iconfinder.com/data/icons/england/154/england-sport-wear-shirt-uniform-football-128.png">  
-        <img class="imgB12" id="player12" src="https://cdn0.iconfinder.com/data/icons/england/154/england-sport-wear-shirt-uniform-football-128.png">
-        <img class="imgB13" id="player13" src="https://cdn0.iconfinder.com/data/icons/england/154/england-sport-wear-shirt-uniform-football-128.png">
-        <img class="imgB14" id="player14" src="https://cdn0.iconfinder.com/data/icons/england/154/england-sport-wear-shirt-uniform-football-128.png">  
+        <img class="imgB8" id="player8" src="~/Content/Images/koszulka-biala.png"> 
+        <img class="imgB9" id="player9" src="~/Content/Images/koszulka-biala.png"> 
+        <img class="imgB10" id="player10" src="~/Content/Images/koszulka-biala.png"> 
+        <img class="imgB11" id="player11" src="~/Content/Images/koszulka-biala.png"> 
+        <img class="imgB12" id="player12" src="~/Content/Images/koszulka-biala.png"> 
+        <img class="imgB13" id="player13" src="~/Content/Images/koszulka-biala.png"> 
+        <img class="imgB14" id="player14" src="~/Content/Images/koszulka-biala.png">  
       
   
         <p class="tekst_koszulka1" id="tekst1">@Model.GetPlayerFromFirstTeam(1)</p>
