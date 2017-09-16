@@ -5,66 +5,30 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>New</h2>
+<h2>Stwórz nowe spotkanie</h2>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Movie</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-   
-        
         <div class="form-group">
-            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Date, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Date, "{0:dd/MM/yyyy}", new { @class = "form-control datetimepicker3", type = "datetime" })
+                @Html.TextBoxFor(model => model.Date, new {@class = "form-control", @type = "datetime-local", @Value = @Model.Date.ToString("yyyy-MM-ddThh:mm") })
                 @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
             </div>
         </div>
-            
-        <h3>Inline DateTimePicker</h3>
-        <p><input id="datetimepicker3" type="text" /></p>
-
-
-  
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" text="Stwórz" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
-
-
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
-<link href="@Url.Content("~/Content/themes/base/jquery-ui.min.css")" rel="stylesheet" />
-@section scripts
-{
-    <!-- Required jQuery and jQuery UI Javascript references -->
-    <script src="~/Scripts/DateTimePicker/jquery.datetimepicker.js"></script>
-    <script src="~/Scripts/DateTimePicker/jquery.datetimepicker.min.js"></script>
-    <script src="~/Scripts/DateTimePicker/jquery.js"></script>
-    <script src="~/Content/jquery.datetimepicker.css"></script>
-    
-    <script src="~/Scripts/jquery-1.12.4.min.js"></script>
-    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            // This will make every element with the class "date-picker" into a DatePicker element
-            $('.date-picker').datepicker({
-                changeMonth: true,
-                changeYear: true,
-                dateFormat: 'dd/mm/yy'
-            });
-
-        })
-    </script>
-}

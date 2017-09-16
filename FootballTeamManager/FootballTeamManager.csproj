@@ -598,7 +598,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Fixture\Index.cshtml" />
-    <Content Include="Views\Fixture\New.cshtml" />
     <Content Include="Views\Player\Create.cshtml" />
     <Content Include="Views\Player\Delete.cshtml" />
     <Content Include="Views\Player\Details.cshtml" />
@@ -609,6 +608,7 @@
     <Content Include="Views\Fixture\Edit.cshtml" />
     <Content Include="Views\Fixture\Details.cshtml" />
     <Content Include="Views\Team\Details.cshtml" />
+    <Content Include="Views\Fixture\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

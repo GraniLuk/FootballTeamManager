@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
@@ -10,8 +11,9 @@ namespace FootballTeamManager.Models
         public int Id { get; set; }
         [Required]
         [Display(Name = "Data")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime Date { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime Date { get; set; } = DateTime.Now;
         public Team FirstTeam { get; set; }
         public Team SecondTeam { get; set; }
         public int FirstTeamScore { get; set; }

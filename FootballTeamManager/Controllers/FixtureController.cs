@@ -100,7 +100,24 @@ namespace FootballTeamManager.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            return View(new Fixture());
+        }
+
+        // POST: Players/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Date")] Fixture fixture)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Fixtures.Add(fixture);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(fixture);
         }
 
         protected override void Dispose(bool disposing)
