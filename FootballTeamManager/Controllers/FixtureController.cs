@@ -23,9 +23,23 @@ namespace FootballTeamManager.Controllers
         // GET: Fixture
         public ActionResult Index()
         {
-            var fixtures = _context.Fixtures.Include(x => x.FirstTeam).Include(x => x.SecondTeam).OrderByDescending(x=>x.Date).ToList();
+            var fixtures = _context.Fixtures
+                .Include(x => x.FirstTeam)
+                .Include(x => x.SecondTeam)
+                .OrderByDescending(x => x.Date)
+                .Select(x => new FixtureListViewModel()
+                {
+                    Id = x.Id,
+                    Date = x.Date,
+                    FirstTeamId = x.FirstTeam.Id,
+                    FirstTeamName = x.FirstTeam.Name,
+                    SecondTeamId = x.SecondTeam.Id,
+                    SecondTeamName = x.SecondTeam.Name,
+                    Score = x.FirstTeamScore.ToString() + ":" + x.SecondTeamScore.ToString()
+                });
+                
 
-            return View(fixtures);
+            return View(fixtures.ToList());
         }
 
         public ActionResult Edit(int? id)

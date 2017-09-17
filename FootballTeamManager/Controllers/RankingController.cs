@@ -13,7 +13,12 @@ namespace FootballTeamManager.Controllers
         // GET: Ranking
         public ActionResult Index()
         {
-            var ranking = _db.Ranking.Include(x=>x.Player).Where(x=>x.RemoveDate ==null).OrderByDescending(x=>x.Wins).Select(x => new RankingDisplayViewModel(){PlayerRanking = x,Player = x.Player}).ToList();
+            var ranking = _db.Ranking
+                .Include(x=>x.Player)
+                .Where(x=>x.RemoveDate ==null)
+                .OrderByDescending(x=>x.Wins)
+                .Select(x => new RankingDisplayViewModel(){PlayerRanking = x,Player = x.Player})
+                .ToList();
 
             return View(ranking);
         }
