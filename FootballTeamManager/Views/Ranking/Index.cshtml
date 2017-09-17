@@ -1,4 +1,5 @@
-﻿@model IEnumerable<FootballTeamManager.ViewModels.RankingDisplayViewModel>
+﻿@using FootballTeamManager.ViewModels
+@model IEnumerable<FootballTeamManager.ViewModels.RankingDisplayViewModel>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -22,7 +23,7 @@
     <tbody>
     @foreach (var playerRanking in Model)
     {
-        <tr>
+        <tr class ="@GetClassFromLevel(playerRanking.Change)">
             <td><img src="@Url.Content("~/Content/Images/down-arrow-red.png")" alt="" height="40" width="40"/></td>
             <td>@playerRanking.PlayerRanking.Place</td>
             <td>@Html.ActionLink(playerRanking.Player.Name, "Details", "Player", new {Id = playerRanking.Player.Id}, null)</td>
@@ -35,6 +36,23 @@
     }
     </tbody>
 </table>
+
+@functions{
+    public string GetClassFromLevel(Change change)
+    {
+        switch (change)
+        {
+            case Change.Increase:
+                return "success";
+            case Change.Fall:
+                return "danger";
+                case Change.Maintain:
+                    return "info";
+            default:
+                return "info";
+        }
+    }
+}
 
 @section scripts
 {
