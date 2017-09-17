@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<FootballTeamManager.Models.Player>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Spis";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Spis graczy</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Zarejestruj nowego gracza", "Create")
 </p>
 <table class="table">
     <tr>
@@ -24,7 +24,8 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
@@ -36,11 +37,15 @@
             @Html.DisplayFor(modelItem => item.Active)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Edytuj", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Szczegóły", "Details", new { id=item.Id })
         </td>
     </tr>
 }
+    <tr class="summary">
+        <td>Łączna ilość aktywnych zawodników: </td>
+        <td> </td>
+        <td> @ViewBag.totalActive</td>
+    </tr>
 
 </table>

@@ -11,47 +11,36 @@ namespace FootballTeamManager.Models
     {
         public int Id { get; set; }
         [Required]
+        [StringLength(12)]
         public string Name { get; set; }
         private List<Player> _team;
         private ApplicationDbContext db = new ApplicationDbContext();
         
-        private List<Player> secondTeam;
-        private List<Player> firstTeam;
+        private List<Player> _secondTeam;
+        private List<Player> _firstTeam;
 
         public Team()
         {
             DrawTeams();
         }
 
-        //public List<Player> GetActivePlayers()
-        //{
-        //    return _team.Where(x => x.Active).ToList();
-        //}
-
-        //public List<Player> GetAllPlayers()
-        //{
-        //    return _team;
-        //}
-
         public void DrawTeams()
         {
-            int firstTeamRanking = 0;
-            int secondTeamRanking = 0;
-            List<Player> a1;
-            List<Player> b2;
-            int counter = 1;
+            int counter;
 
-            var noTeam = db.Players.Where(x => x.TeamNumber > 0).Any();
+            var noTeam = db.Players.Any(x => x.TeamNumber > 0);
             if (!noTeam)
             {
+                int firstTeamRanking;
+                int secondTeamRanking;
+                List<Player> a1;
+                List<Player> b2;
                 do
                 {
                     var zespol = db.Players.Where(x => x.Active).OrderBy(a => Guid.NewGuid()).ToList();
-
                     double numberOfActive = zespol.Count();
-                    int teamOneNumber = Convert.ToInt32(Math.Ceiling(numberOfActive / 2.0));
+                    int teamOneNumber = Convert.ToInt32(Ceiling(numberOfActive / 2.0));
                     int teamTwoNumber = Convert.ToInt32(numberOfActive) - teamOneNumber;
-
 
                     a1 = zespol.Take(teamOneNumber).ToList();
                     b2 = Enumerable.Reverse(zespol).Take(teamTwoNumber).Reverse().ToList();
@@ -76,26 +65,23 @@ namespace FootballTeamManager.Models
                         item.Id = counter;
                         counter += 1;
                     }
-
-
-
-                } while (Math.Abs(firstTeamRanking - secondTeamRanking) > 1);
-                secondTeam = b2;
-                firstTeam = a1;
+                } while (Abs(firstTeamRanking - secondTeamRanking) > 1);
+                _secondTeam = b2;
+                _firstTeam = a1;
             }
             else
             {
-                firstTeam = db.Players.Where(x => x.TeamNumber == 1 && x.Active == true).ToList();
+                _firstTeam = db.Players.Where(x => x.TeamNumber == 1 && x.Active).ToList();
                 counter = 1;
-                foreach (var item in firstTeam)
+                foreach (var item in _firstTeam)
                 {
                     item.Id = counter ;
                     item.TeamNumber = 1;
                     counter += 1;
                 }
-                secondTeam= db.Players.Where(x => x.TeamNumber == 2 && x.Active == true).ToList();
+                _secondTeam= db.Players.Where(x => x.TeamNumber == 2 && x.Active).ToList();
                 counter = 1;
-                foreach (var item in secondTeam)
+                foreach (var item in _secondTeam)
                 {
                     item.Id = counter;
                     item.TeamNumber = 2;
@@ -103,36 +89,21 @@ namespace FootballTeamManager.Models
                 }
 
             }
-
-
-            
-
-
         }
 
         public string GetNumberOfPlayer()
         {
-            return (firstTeam.Count + secondTeam.Count).ToString();
+            return (_firstTeam.Count + _secondTeam.Count).ToString();
         }
 
         public string GetPlayerFromFirstTeam(int id)
         {
-            string result = "";
+            var result = "";
 
-            foreach (var item in firstTeam.Where(x => x.Id == id).Select(z => z.ShortName))
+            foreach (var item in _firstTeam.Where(x => x.Id == id).Select(z => z.ShortName))
             {
-                result= item.ToString();
+                result= item;
             }
-
-            //var ar = result.Split();
-            //int len = 7;
-
-            //if (ar[0].Length < 7) len = ar[0].Length;
-
-            //StringBuilder sb = new StringBuilder();
-            //sb.Append(ar[0].Substring(0, len));
-            //sb.Append(ar[1].Substring(0, 1));
-            // return sb.ToString();
             return result;
         }
 
@@ -140,11 +111,10 @@ namespace FootballTeamManager.Models
         {
             string result = "";
 
-            foreach (var item in secondTeam.Where(x => x.Id == id).Select(z => z.ShortName))
+            foreach (var item in _secondTeam.Where(x => x.Id == id).Select(z => z.ShortName))
             {
-                result = item.ToString();
+                result = item;
             }
-
 
             return result;
         }

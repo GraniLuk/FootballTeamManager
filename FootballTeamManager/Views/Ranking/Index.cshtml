@@ -1,5 +1,5 @@
 ﻿@using FootballTeamManager.ViewModels
-@model IEnumerable<FootballTeamManager.ViewModels.RankingDisplayViewModel>
+@model List<RankingDisplayViewModel>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -10,8 +10,8 @@
 <table id="ranking" class="table table-bordered table-hover">
     <thead>
     <tr>
-        <th>Zmiana</th>
         <th>Miejsce</th>
+        <th style="display:none;">Miejsce2 </th>
         <th>Zawodnik</th>
         <th>Mecze</th>
         <th>Wygrane</th>
@@ -21,33 +21,39 @@
     </tr>
     </thead>
     <tbody>
-    @foreach (var playerRanking in Model)
+    @for (int i = 0; i<Model.Count(); i++)
     {
-        <tr class ="@GetClassFromLevel(playerRanking.Change)">
-            <td><img src="@Url.Content("~/Content/Images/down-arrow-red.png")" alt="" height="40" width="40"/></td>
-            <td>@playerRanking.PlayerRanking.Place</td>
-            <td>@Html.ActionLink(playerRanking.Player.Name, "Details", "Player", new {Id = playerRanking.Player.Id}, null)</td>
-            <td>@playerRanking.PlayerRanking.Matches</td>
-            <td>@playerRanking.PlayerRanking.Wins</td>
-            <td>@playerRanking.PlayerRanking.Draws</td>
-            <td>@playerRanking.PlayerRanking.Loses</td>
-            <td>@playerRanking.PlayerRanking.Player.Skill</td>
+        <tr class ="@GetClassFromLevel(Model[i].Change,i)">
+            <td>@Model[i].PlayerRanking.Place (@Model[i].ChangeAmount)</td>
+            <td style="display:none;">@Model[i].PlayerRanking.Place</td>
+            <td>@Html.ActionLink(Model[i].Player.Name, "Details", "Player", new {Id = Model[i].Player.Id}, null)</td>
+            <td>@Model[i].PlayerRanking.Matches</td>
+            <td>@Model[i].PlayerRanking.Wins</td>
+            <td>@Model[i].PlayerRanking.Draws</td>
+            <td>@Model[i].PlayerRanking.Loses</td>
+            <td>@Model[i].PlayerRanking.Player.Skill</td>
         </tr>
     }
     </tbody>
 </table>
 
 @functions{
-    public string GetClassFromLevel(Change change)
+    public string GetClassFromLevel(Change change, int i)
     {
+        if (i==0)
+        {
+            return "warning";
+        }
         switch (change)
         {
             case Change.Increase:
                 return "success";
             case Change.Fall:
                 return "danger";
-                case Change.Maintain:
-                    return "info";
+            case Change.Maintain:
+                return "info";
+            case Change.New:
+                return "info";
             default:
                 return "info";
         }
@@ -56,10 +62,14 @@
 
 @section scripts
 {
-<script>
-  $(function(){
-    $("#ranking").dataTable();
-  })
-</script>
-    }
+    <script>
+        $(function() {
+            $("#ranking").dataTable({
+                "columnDefs": [
+                    { "orderData": 1, "targets": [0] }
+                ]
+            });
+        })
+    </script>
+}
 

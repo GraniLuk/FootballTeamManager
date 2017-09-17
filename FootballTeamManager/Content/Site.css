@@ -281,3 +281,19 @@ font-weight: bold;
    display:none;
    color:black;
 }
+
+.table > thead > tr > td.summary,
+.table > tbody > tr > td.summary,
+.table > tfoot > tr > td.summary,
+.table > thead > tr > th.summary,
+.table > tbody > tr > th.summary,
+.table > tfoot > tr > th.summary,
+.table > thead > tr.summary > td,
+.table > tbody > tr.summary > td,
+.table > tfoot > tr.summary > td,
+.table > thead > tr.summary > th,
+.table > tbody > tr.summary > th,
+.table > tfoot > tr.summary > th {
+    background-color: lightskyblue;
+    border-color: black;
+}

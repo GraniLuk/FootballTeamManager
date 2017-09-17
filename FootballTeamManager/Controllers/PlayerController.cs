@@ -18,6 +18,7 @@ namespace FootballTeamManager.Controllers
         // GET: Players
         public ActionResult Index()
         {
+            ViewBag.totalActive = _db.Players.Count(x=>x.Active);
             return View(_db.Players.ToList());
         }
 
