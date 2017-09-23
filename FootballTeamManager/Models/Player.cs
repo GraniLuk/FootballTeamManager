@@ -26,6 +26,7 @@ namespace FootballTeamManager.Models
         [StringLength(7)]
         public string ShortName { get; set; }
         public Int16 TeamNumber { get; set; }
+        public Int16 Lp { get; set; }
 
         private List<Player> _team;
         private List<Player> secondTeam;

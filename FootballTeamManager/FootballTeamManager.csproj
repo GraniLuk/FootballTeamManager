@@ -260,12 +260,17 @@
     <Compile Include="Migrations\201709170903119_OgraniczenieDlugosciKolumnyNameWTeam.Designer.cs">
       <DependentUpon>201709170903119_OgraniczenieDlugosciKolumnyNameWTeam.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709231147309_20170923_Dodanie_LP_do_Player.cs" />
+    <Compile Include="Migrations\201709231147309_20170923_Dodanie_LP_do_Player.Designer.cs">
+      <DependentUpon>201709231147309_20170923_Dodanie_LP_do_Player.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Fixture.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Player.cs" />
+    <Compile Include="Models\RoleName.cs" />
     <Compile Include="Models\Team.cs" />
     <Compile Include="Models\TeamPlayerAssociation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -591,8 +596,12 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\NamespacesAndEnumSupport.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <None Include="Scripts\_vs2012.intellisense.js" />
+    <None Include="Scripts\_references.js" />
+    <Content Include="Scripts\_vs2012.intellisense.Test.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -636,6 +645,8 @@
     <Content Include="Views\Fixture\Details.cshtml" />
     <Content Include="Views\Team\Details.cshtml" />
     <Content Include="Views\Fixture\Create.cshtml" />
+    <Content Include="Views\Draw\_drawTeam.cshtml" />
+    <Content Include="Views\Draw\_empty.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -682,6 +693,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709170903119_OgraniczenieDlugosciKolumnyNameWTeam.resx">
       <DependentUpon>201709170903119_OgraniczenieDlugosciKolumnyNameWTeam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709231147309_20170923_Dodanie_LP_do_Player.resx">
+      <DependentUpon>201709231147309_20170923_Dodanie_LP_do_Player.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
