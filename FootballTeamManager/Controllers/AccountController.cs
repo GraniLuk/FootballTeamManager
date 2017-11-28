@@ -446,7 +446,7 @@ namespace FootballTeamManager.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Fixture");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult
