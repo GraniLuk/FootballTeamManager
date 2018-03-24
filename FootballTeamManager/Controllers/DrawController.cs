@@ -18,5 +18,30 @@ namespace FootballTeamManager.Controllers
            
             return View(a);
         }
+  
+        public ActionResult ResetTeam()
+        {
+            Team model = new Team();
+            if (ModelState.IsValid)
+            {
+                model.ResetTeam();
+            }
+            return RedirectToAction("Index", "Draw");
+
+        }
+
+        public ActionResult NewDraw()
+        {
+            Team model = new Team();
+            if (ModelState.IsValid)
+            {
+                model.DrawTeams();
+            }
+            return RedirectToAction("Index", "Draw");
+
+        }
+
+
+
     }
 }
