@@ -36,10 +36,7 @@ namespace FootballTeamManager.Models
                     player.TeamNumber = 0;
                     db.Entry(player).State = EntityState.Modified;
                 }
-                db.SaveChanges();
-                SmtpClient smtpClient = new SmtpClient();
-                MailMessage msgMail = new MailMessage("orlik@fotballteammanager.apphb.com","granica.lukasz@gmail.com","Składy","Wylosowano składy");
-                smtpClient.Send(msgMail);
+                db.SaveChanges();      
             }
             catch (Exception ex)
             {
