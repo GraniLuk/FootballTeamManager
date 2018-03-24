@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using static System.Math;
 
@@ -22,6 +23,12 @@ namespace FootballTeamManager.Models
         public Team()
         {
             DrawTeams();
+            var msgMail =
+                new MailMessage(new MailAddress("orlik@footballteammanager.apphb.com"),
+                        new MailAddress("granica.lukasz@gmail.com"))
+                    { Subject = "Składy na 24.03.2018", Body = "Składy:" };
+            var smtpClient = new SmtpClient();
+            smtpClient.Send(msgMail);
         }
 
         public void DrawTeams()
