@@ -129,8 +129,11 @@ namespace FootballTeamManager.Models
             int secondTeamRanking;
             List<Player> a1;
             List<Player> b2;
+            var differenceBetweenSkillsInTeams = 1;
+            var drawsCount = 0;
             do
             {
+                drawsCount++;
                 var zespol = db.Players.Where(x => x.Active).OrderBy(a => Guid.NewGuid()).ToList();
                 double numberOfActive = zespol.Count();
                 int teamOneNumber = Convert.ToInt32(Ceiling(numberOfActive / 2.0));
@@ -159,7 +162,8 @@ namespace FootballTeamManager.Models
                     item.Lp = counter;
                     counter += 1;
                 }
-            } while (Abs(firstTeamRanking - secondTeamRanking) > 1);
+                if (drawsCount % 10 == 0) differenceBetweenSkillsInTeams++;
+            } while (Abs(firstTeamRanking - secondTeamRanking) > differenceBetweenSkillsInTeams);
             _secondTeam = b2;
             _firstTeam = a1;
         }
