@@ -264,6 +264,10 @@
     <Compile Include="Migrations\201709231147309_20170923_Dodanie_LP_do_Player.Designer.cs">
       <DependentUpon>201709231147309_20170923_Dodanie_LP_do_Player.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810221806144_AddSeasonToFixture.cs" />
+    <Compile Include="Migrations\201810221806144_AddSeasonToFixture.Designer.cs">
+      <DependentUpon>201810221806144_AddSeasonToFixture.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Fixture.cs" />
@@ -696,6 +700,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709231147309_20170923_Dodanie_LP_do_Player.resx">
       <DependentUpon>201709231147309_20170923_Dodanie_LP_do_Player.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810221806144_AddSeasonToFixture.resx">
+      <DependentUpon>201810221806144_AddSeasonToFixture.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

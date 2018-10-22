@@ -18,5 +18,6 @@ namespace FootballTeamManager.Models
         public Team SecondTeam { get; set; }
         public int FirstTeamScore { get; set; }
         public int SecondTeamScore { get; set; }
+        public int Season { get; set; }
     }
 }
