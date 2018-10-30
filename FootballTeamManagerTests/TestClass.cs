@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
+using Typesafe.Mailgun;
 
 namespace FootballTeamManagerTests
 {
@@ -31,27 +32,16 @@ namespace FootballTeamManagerTests
     {
         public void Send()
         {
-            using (var client = new SmtpClient())
+            string domain = "appfa642b7cb3bb48cda8fc6068d8fb2ec5.mailgun.org";
+            string api_key = "key-f143564a247580b4a84efbbb6498c95b";
+            MailgunClient client = new MailgunClient(domain, api_key,3);
+            client.SendMail(new System.Net.Mail.MailMessage("admin@" + domain, "granica.lukasz@gmail.com")
             {
-                var credential = new NetworkCredential()
-                {
-                    UserName = "postmaster@appfa642b7cb3bb48cda8fc6068d8fb2ec5.mailgun.org",
-                    Password = "154c031f561b3be2a435faa7d076ed35"
-                };
-                client.Credentials = credential;
-                client.Host = "smtp.mailgun.org";
-                client.Port = 587;
+                Subject = "Hello from mailgun",
+                Body = "this is a test message from mailgun."
+            });
 
-                var message = new MailMessage()
-                {
-                    To = { new MailAddress("granica.lukasz@gmail.com")},
-                    From = new MailAddress("orlik@footballteammanager.apphb.com"),
-                    Subject = "Składy 24.03.2018",
-                    Body = "Składy można sprawdzić na stronie http://footballteammanager.apphb.com/"
-            };
-                client.Send(message);
-            }
-                throw new NotImplementedException();
+         
         }
     }
 
