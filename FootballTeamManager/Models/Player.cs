@@ -24,5 +24,7 @@ namespace FootballTeamManager.Models
         public string ShortName { get; set; }
         public short TeamNumber { get; set; }
         public short Lp { get; set; }
+        [StringLength(30)]
+        public string DoodleName { get; set; }
     }
 }
