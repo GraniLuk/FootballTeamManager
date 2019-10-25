@@ -22,7 +22,7 @@ namespace FootballTeamManager.Models
         [Required]
         [StringLength(7)]
         public string ShortName { get; set; }
-        public Int16 TeamNumber { get; set; }
-        public Int16 Lp { get; set; }
+        public short TeamNumber { get; set; }
+        public short Lp { get; set; }
     }
 }
