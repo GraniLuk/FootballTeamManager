@@ -9,7 +9,6 @@ namespace FootballTeamManager.Models
         public Player()
         {
             Active = true;
-           // DrawTeams();
         }
         public int Id { get; set; }
         [Required]
