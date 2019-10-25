@@ -6,6 +6,9 @@
 }
 
 <h2>Spis graczy</h2>
+<div class="containerdiv">
+    <input type="button" class="myButton" value="Refresh" onclick="location.href='@Url.Action("DoodleRefresh", "Player")'" />
+</div>
 
 <p>
     @Html.ActionLink("Zarejestruj nowego gracza", "Create")

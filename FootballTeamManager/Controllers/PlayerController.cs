@@ -153,5 +153,11 @@ namespace FootballTeamManager.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult DoodleRefresh()
+        {
+
+            return RedirectToAction("Index");
+        }
     }
 }
