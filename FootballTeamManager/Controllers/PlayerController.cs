@@ -156,6 +156,21 @@ namespace FootballTeamManager.Controllers
 
         public ActionResult DoodleRefresh()
         {
+            var doodleParser = new DoodleParser.Client();
+            var activePlayers = doodleParser.GetActivePlayers();
+
+            foreach (var player in _db.Players)
+            {
+                if (activePlayers.Any(x=>x.name == player.DoodleName))
+                {
+                    player.Active = true;
+                }
+                else
+                {
+                    player.Active = false;
+                }
+            }
+            _db.SaveChanges();
 
             return RedirectToAction("Index");
         }

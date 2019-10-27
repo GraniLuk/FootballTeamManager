@@ -1,6 +1,5 @@
 /// <reference path="namespacesandenumsupport.js" />
 /// <reference path="_vs2012.intellisense.js" />
-/// <reference path="~/scripts/jquery-1.9.1.js" />
 
 
 !function () {

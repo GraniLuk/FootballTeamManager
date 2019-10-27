@@ -13,7 +13,6 @@ namespace FootballTeamManager.Models
         [Required]
         [StringLength(12)]
         public string Name { get; set; }
-        private List<Player> _team;
         private ApplicationDbContext db = new ApplicationDbContext();
         
         private List<Player> _secondTeam;

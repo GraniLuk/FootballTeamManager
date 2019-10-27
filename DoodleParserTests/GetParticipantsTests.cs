@@ -14,7 +14,7 @@ namespace DoodleParserTests
         [Test]
         public void GetAllParticipants()
         {
-            var response = new Client().GetParticipants("http://doodle.com/api/v2.0/polls/vxmqh3weap4az3cu/").Count;
+            var response = new Client().GetParticipants().Count;
 
             Assert.AreEqual(20, response);
 
@@ -23,7 +23,7 @@ namespace DoodleParserTests
         [Test]
         public void GetAllActiveParticipantsForLastWeek()
         {
-            var response = new Client().GetParticipants("http://doodle.com/api/v2.0/polls/vxmqh3weap4az3cu/").Count(x => x.preferences.LastOrDefault() == 1);
+            var response = new Client().GetParticipants().Count(x => x.preferences.LastOrDefault() == 1);
 
             Assert.AreEqual(12, response);
         }
