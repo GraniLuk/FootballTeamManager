@@ -10,9 +10,13 @@ namespace DoodleParser
 {
     public class Client
     {
+        public Client(string doodleUrl)
+        {
+            DoodleUrl = doodleUrl;
+        }
         private static readonly HttpClient client = new HttpClient();
 
-        const string DoodleUrl = "http://doodle.com/api/v2.0/polls/vxmqh3weap4az3cu/";
+        private readonly string DoodleUrl;
 
         public List<Participant> GetParticipants()
         {

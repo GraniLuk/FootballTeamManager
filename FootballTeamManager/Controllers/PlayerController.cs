@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System.Configuration;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -156,7 +157,8 @@ namespace FootballTeamManager.Controllers
 
         public ActionResult DoodleRefresh()
         {
-            var doodleParser = new DoodleParser.Client();
+            string doodleUrl = ConfigurationManager.AppSettings["DoodleApi"];
+            var doodleParser = new DoodleParser.Client(doodleUrl);
             var activePlayers = doodleParser.GetActivePlayers();
 
             foreach (var player in _db.Players)
