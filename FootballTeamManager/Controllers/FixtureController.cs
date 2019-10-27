@@ -64,9 +64,9 @@ namespace FootballTeamManager.Controllers
         {
             if (ModelState.IsValid)
             {
-                Mapper.Initialize(cfg=>cfg.CreateMap<Fixture,Fixture>());
+                var config = new MapperConfiguration(cfg=>cfg.CreateMap<Fixture,Fixture>());
                 var fixtureFromDb = _context.Fixtures.Single(x => x.Id == fixture.Id);
-                Mapper.Map(fixture, fixtureFromDb);
+                config.CreateMapper().Map(fixture, fixtureFromDb);
                 _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
