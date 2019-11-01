@@ -114,7 +114,13 @@ namespace FootballTeamManager.Controllers
 
         public ActionResult Create()
         {
-            return View(new Fixture());
+            var fixtureCreateViewModel = new FixtureCreateViewModel();
+            var allTeams = _context.Teams.ToList();
+            fixtureCreateViewModel.SelectedTeamA = allTeams.Last().Id.ToString();
+            IEnumerable<SelectListItem> items = allTeams.Select(x => new SelectListItem() { Text = x.Name, Value = x.Id.ToString() });
+            fixtureCreateViewModel.TeamsAToChoose = items;
+            fixtureCreateViewModel.TeamsBToChoose = items;
+            return View(fixtureCreateViewModel);
         }
 
         // POST: Players/Create
