@@ -128,8 +128,9 @@ namespace FootballTeamManager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Date")] Fixture fixture)
+        public ActionResult Create([Bind(Include = "Date,TeamsAToChoose,TeamsBToChoose")] FixtureCreateViewModel fixtureViewModel)
         {
+            var fixture = new Fixture() { Date = fixtureViewModel.Date };
             if (ModelState.IsValid)
             {
                 _context.Fixtures.Add(fixture);
