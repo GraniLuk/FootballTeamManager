@@ -5,18 +5,19 @@ using System.Net;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Linq;
+using DoodleParser.Model;
 
 namespace DoodleParser
 {
-    public class Client
+    public class Client : IClient
     {
+        private static readonly HttpClient client = new HttpClient();
+        private readonly string DoodleUrl;
         public Client(string doodleUrl)
         {
             DoodleUrl = doodleUrl;
         }
-        private static readonly HttpClient client = new HttpClient();
-
-        private readonly string DoodleUrl;
+        
 
         public List<Participant> GetParticipants()
         {
@@ -30,6 +31,6 @@ namespace DoodleParser
         {
             return GetParticipants().Where(x => x.preferences.LastOrDefault() == 1).ToList();
         }
-            
+
     }
 }

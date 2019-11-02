@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using DoodleParser.Model;
+using System.Collections.Generic;
 
 namespace FootballTeamManagerTests.DoodleApi
 {
