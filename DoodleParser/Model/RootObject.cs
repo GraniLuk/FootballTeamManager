@@ -1,7 +1,6 @@
-﻿using DoodleParser.Model;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace FootballTeamManagerTests.DoodleApi
+namespace DoodleParser.Model
 {
     public class RootObject
     {
