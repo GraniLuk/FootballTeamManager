@@ -20,7 +20,7 @@ namespace FootballTeamManager.Autofac
 
             builder.RegisterType<DoodleParser.Client>()
                 .As<DoodleParser.IClient>()
-                .WithParameter(Properties.DoodleParameterName, ConfigurationManager.AppSettings[Properties.DoodleApi]);
+                .WithParameter(new TypedParameter(typeof(string), ConfigurationManager.AppSettings[Properties.DoodleApi]));
 
             builder.RegisterType<ApplicationDbContext>();
 
