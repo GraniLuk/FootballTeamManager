@@ -42,20 +42,20 @@
     {
         if (i==0)
         {
-            return "warning";
+            return "table-warning";
         }
         switch (change)
         {
             case Change.Increase:
-                return "success";
+                return "table-success";
             case Change.Fall:
-                return "danger";
+                return "table-danger";
             case Change.Maintain:
-                return "info";
+                return "table-light";
             case Change.New:
-                return "info";
+                return "table-light";
             default:
-                return "info";
+                return "table-light";
         }
     }
 }
