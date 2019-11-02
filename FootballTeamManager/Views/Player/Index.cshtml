@@ -4,19 +4,17 @@
     ViewBag.Title = "Spis";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Spis graczy</h2>
 @if (User.IsInRole(FootballTeamManager.Models.RoleName.Admin))
 {
-    <div class="containerdiv" style="text-align: right; width: 100%;">
-        <input type="button" class="myButton" value="Refresh" onclick="location.href='@Url.Action("DoodleRefresh", "Player")'" />
-    </div>
+<h2 class="margin-Top15">Spis graczy</h2>
+<div class="containerdiv" style="text-align: right; width: 100%;">
+    <input type="button" class="myButton" value="Refresh" onclick="location.href='@Url.Action("DoodleRefresh", "Player")'" />
+</div>
 
-    <p>
-        @Html.ActionLink("Zarejestruj nowego gracza", "Create")
-    </p>
-}
-
+<p class="margin-bottom24">
+    @Html.ActionLink("Zarejestruj nowego gracza", "Create")
+</p>
+    }
 <table class="table">
     <tr>
         <th>

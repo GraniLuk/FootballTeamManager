@@ -349,3 +349,11 @@ font-weight: bold;
 	top:1px;
     /*z-index: 3;*/
 }
+
+.margin-Top15 {
+    margin-top: 15px;
+}
+
+.margin-bottom24 {
+    margin-bottom:24px;
+}
