@@ -15,9 +15,9 @@ namespace FootballTeamManager.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        public FixtureController()
+        public FixtureController(ApplicationDbContext context)
         {
-            _context = new ApplicationDbContext();
+            _context = context;
         }
 
         // GET: Fixture
@@ -37,7 +37,11 @@ namespace FootballTeamManager.Controllers
                     SecondTeamName = x.SecondTeam.Name,
                     Score = x.FirstTeamScore.ToString() + ":" + x.SecondTeamScore.ToString()
                 });
-                
+
+            if (fixtures == null)
+            {
+                return HttpNotFound();
+            }
 
             return View(fixtures.ToList());
         }

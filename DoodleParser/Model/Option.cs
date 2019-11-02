@@ -1,4 +1,4 @@
-﻿namespace FootballTeamManagerTests.DoodleApi
+﻿namespace DoodleParser.Model
 {
     public class Option
     {

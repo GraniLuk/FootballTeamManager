@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using FootballTeamManager.Autofac;
+using System.Data.Entity;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -9,6 +10,7 @@ namespace FootballTeamManager
     {
         protected void Application_Start()
         {
+            AutofacConfig.ConfigureContainer();
             Database.SetInitializer<Models.ApplicationDbContext>(null);
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

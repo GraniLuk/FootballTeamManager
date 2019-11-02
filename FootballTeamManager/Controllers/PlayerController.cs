@@ -1,17 +1,23 @@
-﻿using System.Configuration;
-using System.Data;
+﻿using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using FootballTeamManager.Models;
 using FootballTeamManager.ViewModels;
+using DoodleParser;
 
 namespace FootballTeamManager.Controllers
 {
     public class PlayerController : Controller
     {
-        private readonly ApplicationDbContext _db = new ApplicationDbContext();
+        private readonly ApplicationDbContext _db;
+        private readonly IClient _doodleParser;
+        public PlayerController(IClient client, ApplicationDbContext dbContext)
+        {
+            _doodleParser = client;
+            _db = dbContext;
+        }
 
         // GET: Players
         public ActionResult Index()
@@ -159,9 +165,7 @@ namespace FootballTeamManager.Controllers
         [Authorize(Roles = RoleName.Admin)]
         public ActionResult DoodleRefresh()
         {
-            string doodleUrl = ConfigurationManager.AppSettings["DoodleApi"];
-            var doodleParser = new DoodleParser.Client(doodleUrl);
-            var activePlayers = doodleParser.GetActivePlayers();
+            var activePlayers = _doodleParser.GetActivePlayers();
 
             foreach (var player in _db.Players)
             {

@@ -9,7 +9,11 @@ namespace FootballTeamManager.Controllers
 {
     public class RankingController : Controller
     {
-        private readonly ApplicationDbContext _db = new ApplicationDbContext();
+        private readonly ApplicationDbContext _db;
+        public RankingController(ApplicationDbContext context)
+        {
+            _db = context;
+        }
         // GET: Ranking
         public ActionResult Index()
         {
