@@ -14,13 +14,23 @@ namespace FootballTeamManager.Models
         [StringLength(12)]
         public string Name { get; set; }
         private ApplicationDbContext db = new ApplicationDbContext();
-        
+
         private List<Player> _secondTeam;
         private List<Player> _firstTeam;
 
         public Team()
         {
             GetExistingSquad();
+        }
+
+        public IEnumerable<TeamPlayerAssociation> SetPlayersFromDraw(IEnumerable<Player> players)
+        {
+            return players.Select(x => new TeamPlayerAssociation() { Team = this, Player = x });
+        }
+
+        public static Team CreateForDate(string Name, DateTime date)
+        {
+            return new Team() { Name = date.ToShortDateString() + Name };
         }
         public void ResetTeam()
         {
