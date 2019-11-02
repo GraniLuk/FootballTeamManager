@@ -114,12 +114,8 @@ namespace FootballTeamManager.Controllers
 
         public ActionResult Create()
         {
-            var fixtureCreateViewModel = new FixtureCreateViewModel();
-            var allTeams = _context.Teams.ToList();
-            fixtureCreateViewModel.SelectedTeamA = allTeams.Last().Id.ToString();
-            IEnumerable<SelectListItem> items = allTeams.Select(x => new SelectListItem() { Text = x.Name, Value = x.Id.ToString() });
-            fixtureCreateViewModel.TeamsAToChoose = items;
-            fixtureCreateViewModel.TeamsBToChoose = items;
+            var fixtureCreateViewModel = new FixtureCreateViewModel(_context.Teams.OrderByDescending(p => p.Id).Take(2));
+            
             return View(fixtureCreateViewModel);
         }
 
@@ -128,9 +124,11 @@ namespace FootballTeamManager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Date,TeamsAToChoose,TeamsBToChoose")] FixtureCreateViewModel fixtureViewModel)
+        public ActionResult Create([Bind(Include = "Date,TeamsAToChoose,TeamsBToChoose,SelectedTeamA,SelectedTeamB")] FixtureCreateViewModel fixtureViewModel)
         {
-            var fixture = new Fixture() { Date = fixtureViewModel.Date };
+            var fixture = new Fixture() { Date = fixtureViewModel.Date
+                , FirstTeam = _context.Teams.FirstOrDefault(x=>x.Id == fixtureViewModel.SelectedTeamA)
+                , SecondTeam = _context.Teams.FirstOrDefault(x=>x.Id ==fixtureViewModel.SelectedTeamB)  };
             if (ModelState.IsValid)
             {
                 _context.Fixtures.Add(fixture);
