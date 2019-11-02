@@ -114,7 +114,9 @@ namespace FootballTeamManager.Controllers
 
         public ActionResult Create()
         {
-            return View(new Fixture());
+            var fixtureCreateViewModel = new FixtureCreateViewModel(_context.Teams.OrderByDescending(p => p.Id).Take(2));
+            
+            return View(fixtureCreateViewModel);
         }
 
         // POST: Players/Create
@@ -122,8 +124,11 @@ namespace FootballTeamManager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Date")] Fixture fixture)
+        public ActionResult Create([Bind(Include = "Date,TeamsAToChoose,TeamsBToChoose,SelectedTeamA,SelectedTeamB")] FixtureCreateViewModel fixtureViewModel)
         {
+            var fixture = new Fixture() { Date = fixtureViewModel.Date
+                , FirstTeam = _context.Teams.FirstOrDefault(x=>x.Id == fixtureViewModel.SelectedTeamA)
+                , SecondTeam = _context.Teams.FirstOrDefault(x=>x.Id ==fixtureViewModel.SelectedTeamB)  };
             if (ModelState.IsValid)
             {
                 _context.Fixtures.Add(fixture);
