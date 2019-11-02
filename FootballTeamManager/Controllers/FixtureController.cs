@@ -122,6 +122,7 @@ namespace FootballTeamManager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = RoleName.Admin)]
         public ActionResult Create([Bind(Include = "Date")] Fixture fixture)
         {
             var teamA = Team.CreateForDate("A", fixture.Date);

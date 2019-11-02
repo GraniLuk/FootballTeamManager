@@ -4,34 +4,36 @@
 }
 
 <h2>Terminarz</h2>
+@if (User.IsInRole(FootballTeamManager.Models.RoleName.Admin)){
 <p>
-    @Html.ActionLink("Zarejestruj nowe spotkanie", "Create")
+@Html.ActionLink("Zarejestruj nowe spotkanie", "Create")
 </p>
+ }
 <table class="table table-bordered table-hover">
-<thead>
-<tr>
-    <th>Fixture</th>
-    <th>First team</th>
-    <th>Second team</th>
-    <th>Score</th>
-    <th></th>
-</tr>
-</thead>
-<tbody>
-@foreach (var fixture in Model)
-{
-    <tr>
-        <td>@fixture.Date</td>
-        <td>@Html.ActionLink(fixture.FirstTeamName, "Details", "Team", new { Id = fixture.FirstTeamId }, null)</td>
-        <td>@Html.ActionLink(fixture.SecondTeamName, "Details", "Team", new { Id = fixture.SecondTeamId }, null)</td>
-        <td>@fixture.Score</td>
-        <td>
-        @Html.ActionLink("Edit", "Edit", new { id= fixture.Id }) |
-        @Html.ActionLink("Details", "Details", new { id= fixture.Id }) 
-        </td>
-    </tr>
-}
-</tbody>
+    <thead>
+        <tr>
+            <th>Fixture</th>
+            <th>First team</th>
+            <th>Second team</th>
+            <th>Score</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var fixture in Model)
+        {
+            <tr>
+                <td>@fixture.Date</td>
+                <td>@Html.ActionLink(fixture.FirstTeamName, "Details", "Team", new { Id = fixture.FirstTeamId }, null)</td>
+                <td>@Html.ActionLink(fixture.SecondTeamName, "Details", "Team", new { Id = fixture.SecondTeamId }, null)</td>
+                <td>@fixture.Score</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = fixture.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = fixture.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
 
 

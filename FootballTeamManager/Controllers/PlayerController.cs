@@ -112,6 +112,7 @@ namespace FootballTeamManager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = RoleName.Admin)]
         public ActionResult Edit([Bind(Include = "Id,Name,Skill,Active,ShortName,DoodleName")] Player player)
         {
             if (!ModelState.IsValid) return View(player);
@@ -155,6 +156,7 @@ namespace FootballTeamManager.Controllers
             base.Dispose(disposing);
         }
 
+        [Authorize(Roles = RoleName.Admin)]
         public ActionResult DoodleRefresh()
         {
             string doodleUrl = ConfigurationManager.AppSettings["DoodleApi"];
