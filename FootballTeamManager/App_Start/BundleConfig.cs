@@ -13,7 +13,7 @@ namespace FootballTeamManager
                           "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js",
                       "~/Scripts/datatables/jquery.datatables.js",
-                      "~/scripts/datatables/datatables.bootstrap.js"));
+                      "~/scripts/datatables/dataTables.bootstrap4.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -25,7 +25,7 @@ namespace FootballTeamManager
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/content/datatables/css/datatables.bootstrap.css",
+                      "~/content/datatables/css/dataTables.bootstrap4.css",
                       "~/Content/Site.css"));
         }
     }
