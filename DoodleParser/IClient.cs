@@ -1,11 +1,11 @@
-﻿using DoodleParser.Model;
+﻿using DoodleApi.Model;
+using System;
 using System.Collections.Generic;
 
-namespace DoodleParser
+namespace DoodleApi
 {
-    public interface IClient
+    public interface IApi
     {
-        List<Participant> GetActivePlayers();
-        List<Participant> GetParticipants();
+        List<Participant> GetActivePlayersAt(DateTime date);
     }
 }

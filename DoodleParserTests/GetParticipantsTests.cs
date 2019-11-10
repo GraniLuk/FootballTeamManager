@@ -1,33 +1,33 @@
-﻿using DoodleParser;
-using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//using DoodleApi;
+//using NUnit.Framework;
+//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
 
-namespace DoodleParserTests
-{
-    [TestFixture]
-    public class ParsingDoodleTests
-    {
-        private readonly string doodleUrl = "http://doodle.com/api/v2.0/polls/vxmqh3weap4az3cu/";
-        [Test]
-        public void GetAllParticipants()
-        {
-            var response = new Client(doodleUrl).GetParticipants().Count;
+//namespace DoodleParserTests
+//{
+//    [TestFixture]
+//    public class ParsingDoodleTests
+//    {
+//        private readonly string doodleUrl = "http://doodle.com/api/v2.0/polls/vxmqh3weap4az3cu/";
+//        [Test]
+//        public void GetAllParticipants()
+//        {
+//            var response = new DoodleApi.DoodleApi(doodleUrl).GetParticipants().Count;
 
-            Assert.AreEqual(20, response);
+//            Assert.AreEqual(20, response);
 
-        }
+//        }
 
-        [Test]
-        public void GetAllActiveParticipantsForLastWeek()
-        {
-            var response = new Client(doodleUrl).GetParticipants().Count(x => x.preferences.LastOrDefault() == 1);
+//        [Test]
+//        public void GetAllActiveParticipantsForLastWeek()
+//        {
+//            var response = new DoodleApi(doodleUrl).GetParticipants().Count(x => x.preferences.LastOrDefault() == 1);
 
-            Assert.AreEqual(12, response);
-        }
+//            Assert.AreEqual(12, response);
+//        }
 
-    }
-}
+//    }
+//}
