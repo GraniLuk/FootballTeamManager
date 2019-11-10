@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DoodleApi.Model
 {
@@ -23,5 +25,10 @@ namespace DoodleApi.Model
         public string device { get; set; }
         public List<object> calendarEvents { get; set; }
         public string levels { get; set; }
+
+        public int CheckPositionDateInArray(DateTime date)
+        {
+            return options.Select((s, i) => new { i, s }).Where(x => x.s.ReadableDate.Date == date.Date).Select(x => x.i).FirstOrDefault();
+        }
     }
 }

@@ -166,7 +166,8 @@ namespace FootballTeamManager.Controllers
         [Authorize(Roles = RoleName.Admin)]
         public ActionResult DoodleRefresh()
         {
-            var activePlayers = _doodleParser.GetActivePlayersAt(DateTime.Now);
+            var lastMatchDate = _db.Fixtures.OrderByDescending(x=>x.Id).FirstOrDefault().Date;
+            var activePlayers = _doodleParser.GetActivePlayersAt(lastMatchDate);
 
             foreach (var player in _db.Players)
             {
