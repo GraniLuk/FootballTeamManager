@@ -18,10 +18,10 @@ namespace DoodleApi.Client
             return _rootObject.participants;
         }
 
-        internal List<Participant> GetActiveParticipantsAt(DateTime date)
+        public List<Participant> GetActiveParticipantsAt(DateTime date)
         {
-            var option = _rootObject.options.FirstOrDefault(x => (DateTime)x.start == date);
-            return new List<Participant>();
+            var option = _rootObject.CheckPositionDateInArray(date);
+            return GetParticipants().Where(x => x.preferences[option] == 1).ToList();
         }
     }
 }

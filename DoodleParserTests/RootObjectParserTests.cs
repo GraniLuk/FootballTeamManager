@@ -2,11 +2,8 @@
 using Newtonsoft.Json;
 using NUnit.Framework;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DoodleParserTests
 {
@@ -27,7 +24,7 @@ namespace DoodleParserTests
         {
             var option = _rootObject.options.FirstOrDefault();
 
-            Assert.AreEqual(option.ReadableDate, new DateTime(2019, 9, 3, 17, 30,0));
+            Assert.AreEqual(option.ReadableDate, new DateTime(2019, 10, 9, 20, 30,0));
         }
 
         [Test]
@@ -35,7 +32,24 @@ namespace DoodleParserTests
         {
             var option = _rootObject.options.Skip(1).FirstOrDefault();
 
-            Assert.AreEqual(option.ReadableDate, new DateTime(2019, 9, 10, 17, 30, 0));
+            Assert.AreEqual(option.ReadableDate, new DateTime(2019,10, 16, 20, 30, 0));
+        }
+
+        [Test]
+        public void ForthMatch_GetOptions_StartDateEquals2019_10_6()
+        {
+            var option = _rootObject.options.Skip(3).FirstOrDefault();
+
+            Assert.AreEqual(new DateTime(2019, 11, 6, 20, 30, 0), option.ReadableDate);
+        }
+
+        [Test]
+        public void GetNumberOfMatchWithDate_Returns2()
+        {
+            var option = _rootObject.CheckPositionDateInArray(new DateTime(2019, 10, 23));
+
+            Assert.AreEqual(2, option);
+
         }
     }
 }
