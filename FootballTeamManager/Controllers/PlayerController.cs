@@ -171,14 +171,7 @@ namespace FootballTeamManager.Controllers
 
             foreach (var player in _db.Players)
             {
-                if (activePlayers.Any(x=>x.name == player.DoodleName))
-                {
-                    player.Active = true;
-                }
-                else
-                {
-                    player.Active = false;
-                }
+                player.SetAsActiveBasedOnDoodleList(activePlayers);
             }
             _db.SaveChanges();
 

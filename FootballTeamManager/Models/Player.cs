@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace FootballTeamManager.Models
 {
@@ -26,5 +28,17 @@ namespace FootballTeamManager.Models
         public short Lp { get; set; }
         [StringLength(30)]
         public string DoodleName { get; set; }
+
+        public void SetAsActiveBasedOnDoodleList(List<DoodleApi.Model.Participant> activePlayers)
+        {
+            if (activePlayers.Any(x => x.name == DoodleName))
+            {
+                Active = true;
+            }
+            else
+            {
+                Active = false;
+            }
+        }
     }
 }
