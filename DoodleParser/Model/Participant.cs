@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DoodleParser.Model
+namespace DoodleApi.Model
 {
     public class Participant
     {

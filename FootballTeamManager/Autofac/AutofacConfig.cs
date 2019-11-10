@@ -18,8 +18,8 @@ namespace FootballTeamManager.Autofac
             .AsSelf()
             .AsImplementedInterfaces();
 
-            builder.RegisterType<DoodleParser.Client>()
-                .As<DoodleParser.IClient>()
+            builder.RegisterType<DoodleApi.DoodleApi>()
+                .As<DoodleApi.IApi>()
                 .WithParameter(new TypedParameter(typeof(string), ConfigurationManager.AppSettings[Properties.DoodleApi]));
 
             builder.RegisterType<ApplicationDbContext>();

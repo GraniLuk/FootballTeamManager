@@ -5,15 +5,16 @@ using System.Net;
 using System.Web.Mvc;
 using FootballTeamManager.Models;
 using FootballTeamManager.ViewModels;
-using DoodleParser;
+using DoodleApi;
+using System;
 
 namespace FootballTeamManager.Controllers
 {
     public class PlayerController : Controller
     {
         private readonly ApplicationDbContext _db;
-        private readonly IClient _doodleParser;
-        public PlayerController(IClient client, ApplicationDbContext dbContext)
+        private readonly IApi _doodleParser;
+        public PlayerController(IApi client, ApplicationDbContext dbContext)
         {
             _doodleParser = client;
             _db = dbContext;
@@ -165,7 +166,7 @@ namespace FootballTeamManager.Controllers
         [Authorize(Roles = RoleName.Admin)]
         public ActionResult DoodleRefresh()
         {
-            var activePlayers = _doodleParser.GetActivePlayers();
+            var activePlayers = _doodleParser.GetActivePlayersAt(DateTime.Now);
 
             foreach (var player in _db.Players)
             {

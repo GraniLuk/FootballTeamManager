@@ -14,6 +14,7 @@ namespace FootballTeamManagerTests
     public class TestClass
     {
         [Test]
+        [Category("SkipWhenLiveUnitTesting")]
         public void TestMethod()
         {
             var emailClient = new EmailClient();
