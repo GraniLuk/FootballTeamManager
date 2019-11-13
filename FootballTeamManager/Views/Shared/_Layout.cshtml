@@ -11,11 +11,11 @@
 <body>
     <div class="navbar navbar-dark bg-secondary fixed-top navbar-expand-md">
         <div class="container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-           
-            <div class="navbar-collapse collapse">
+
+            <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Terminarz", "Index", "Fixture", new { area = "" }, htmlAttributes: new { @class = "nav-link" })</li>
                 </ul>
