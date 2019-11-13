@@ -128,19 +128,7 @@ namespace FootballTeamManager.Controllers
         [ValidateAntiForgeryToken]
         [Authorize(Roles = RoleName.Admin)]
         public ActionResult Create([Bind(Include = "Date")] Fixture fixture)
-        {
-            var teamA = Team.CreateForDate("A", fixture.Date);
-            _context.Teams.Add(teamA);
-            var teamB = Team.CreateForDate("B", fixture.Date);
-            _context.Teams.Add(teamA);
-            _context.SaveChanges();
-            var teamPlayersA = teamA.SetPlayersFromDraw(_context.Players.Where(x=>x.TeamNumber==1));
-            var teamPlayersB = teamB.SetPlayersFromDraw(_context.Players.Where(x=>x.TeamNumber==2));
-            _context.TeamPlayerAssociations.AddRange(teamPlayersA);
-            _context.TeamPlayerAssociations.AddRange(teamPlayersB);
-            _context.SaveChanges();
-            fixture.FirstTeam = teamA;
-            fixture.SecondTeam = teamB;
+        {   
             if (ModelState.IsValid)
             {
                 _context.Fixtures.Add(fixture);
