@@ -5,5 +5,7 @@
 
         <input type="button" class="myButton" value="Reset" onclick="location.href='@Url.Action("ResetTeam", "Draw")'" />
         <input type="button" class="myButton" value="Let's start!" onclick="location.href='@Url.Action("NewDraw", "Draw")'" />
-        <input type="button" class="myButton" value="Save" onclick="location.href='@Url.Action("Save", "Draw")'" />
-    </div>
+        @if (ViewBag.ShowSaveButton){
+            <input type="button" class="myButton" value="Save" onclick="location.href='@Url.Action("Create", "Fixture")'" />
+        }
+        </div>

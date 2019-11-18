@@ -14,8 +14,7 @@ namespace FootballTeamManager.Controllers
         public ActionResult Index()
         {
             var a = new Team();
-           
-           
+            ViewBag.ShowSaveButton = (bool?)TempData["ShowSaveButton"] ?? false;
             return View(a);
         }
   
@@ -26,6 +25,7 @@ namespace FootballTeamManager.Controllers
             {
                 model.ResetTeam();
             }
+            TempData["ShowSaveButton"] = false;
             return RedirectToAction("Index", "Draw");
 
         }
@@ -37,6 +37,7 @@ namespace FootballTeamManager.Controllers
             {
                 model.DrawTeams();
             }
+            TempData["ShowSaveButton"] = true;
             return RedirectToAction("Index", "Draw");
 
         }
