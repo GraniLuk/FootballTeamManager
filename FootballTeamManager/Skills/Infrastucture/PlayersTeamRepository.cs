@@ -1,19 +1,26 @@
 ﻿using FootballTeamManager.Models;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-
+using System.Linq;
+using System.Data.Entity;
 namespace FootballTeamManager.Skills.Infrastucture
 {
     internal class PlayersTeamRepository : IPlayersTeamRepository
     {
-        public Task<ICollection<TeamPlayerAssociation>> GetAllTeamsForPlayer(int playerId)
+        private readonly ApplicationDbContext _context;
+        public PlayersTeamRepository()
         {
-            throw new System.NotImplementedException();
+            _context = new ApplicationDbContext();
+        }
+
+        public ICollection<TeamPlayerAssociation> GetAllTeamsForPlayer(int playerId)
+        {
+            return _context.TeamPlayerAssociations.Include(x=>x.Team)
+                .Where(x => x.Player.Id == playerId).ToList();
         }
     }
 
     public interface IPlayersTeamRepository
     {
-        Task<ICollection<TeamPlayerAssociation>> GetAllTeamsForPlayer(int playerId);
+        ICollection<TeamPlayerAssociation> GetAllTeamsForPlayer(int playerId);
     }
 }
