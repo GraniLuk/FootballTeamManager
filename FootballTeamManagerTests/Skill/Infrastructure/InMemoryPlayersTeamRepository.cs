@@ -7,7 +7,7 @@ namespace FootballTeamManagerTests.Skill.Infrastructure
 {
     class InMemoryPlayersTeamRepository : IPlayersTeamRepository
     {
-        public Task<ICollection<TeamPlayerAssociation>> GetAllTeamsForPlayer(int playerId)
+        public ICollection<TeamPlayerAssociation> GetAllTeamsForPlayer(int playerId)
         {
             throw new System.NotImplementedException();
         }

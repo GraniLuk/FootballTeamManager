@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FootballTeamManager.Skills;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -17,8 +18,7 @@ namespace FootballTeamManager.Models
         [DisplayName("Piłkarz")]
         [StringLength(30)]
         public string Name { get; set; }
-        [Required]
-        public int Skill { get; set; }
+        public int Skill => new GetSkillService().GetSkill(Id).Result;
         [Required]
         public bool Active { get; set; }
         [Required]
