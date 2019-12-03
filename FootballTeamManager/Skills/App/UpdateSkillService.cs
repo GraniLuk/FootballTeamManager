@@ -1,4 +1,5 @@
-﻿using FootballTeamManager.Skills.Infrastucture;
+﻿using FootballTeamManager.Models;
+using FootballTeamManager.Skills.Infrastucture;
 using System;
 using System.Threading.Tasks;
 
@@ -15,6 +16,20 @@ namespace FootballTeamManager.Skills
             _playersTeamRespository = new PlayersTeamRepository();
             _fixturesRespository = new FixturesRepository();
         }   
+
+        public async void UpdateSkillForAllParticipants(Fixture fixture)
+        {
+            if (fixture == null) return;
+            foreach (var player in fixture.FirstTeam.Players)
+            {
+                player.Skill = await GetSkill(player.Id);
+            }
+            foreach (var player in fixture.SecondTeam.Players)
+            {
+                player.Skill = await GetSkill(player.Id);
+            }
+        }
+
         public async Task<int> GetSkill(int playerId)
         {
             var allPlayerTeams = _playersTeamRespository.GetAllTeamsForPlayer(playerId);
