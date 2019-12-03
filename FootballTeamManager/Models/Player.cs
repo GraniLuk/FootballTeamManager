@@ -18,7 +18,8 @@ namespace FootballTeamManager.Models
         [DisplayName("Piłkarz")]
         [StringLength(30)]
         public string Name { get; set; }
-        public int Skill => new GetSkillService().GetSkill(Id).Result;
+        [Required]
+        public int Skill { get; set; }
         [Required]
         public bool Active { get; set; }
         [Required]

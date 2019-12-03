@@ -1,4 +1,5 @@
 ﻿using FootballTeamManager.Skills.Infrastucture;
+using System;
 using System.Threading.Tasks;
 
 namespace FootballTeamManager.Skills
@@ -6,6 +7,7 @@ namespace FootballTeamManager.Skills
     public class GetSkillService
     {
         private const int MinimumMatchesToBeRanked = 5;
+        private const int MaximumMatchesToRanking = 10;
         private readonly IPlayersTeamRepository _playersTeamRespository;
         private readonly IFixturesRepository _fixturesRespository;
         public GetSkillService()
@@ -18,9 +20,12 @@ namespace FootballTeamManager.Skills
             var allPlayerTeams = _playersTeamRespository.GetAllTeamsForPlayer(playerId);
             if (allPlayerTeams.Count < MinimumMatchesToBeRanked) return 0;
             var skill = 0;
-            foreach (var match in allPlayerTeams)
+            var maximumMatches = Math.Min(MaximumMatchesToRanking, allPlayerTeams.Count);
+            for (int i = 0; i < maximumMatches; i++)
             {
-                var fixture = await _fixturesRespository.GetForATeam(match.Team.Id).ConfigureAwait(false);
+                var match = allPlayerTeams[i];
+                if (match == null) break;
+                var fixture = _fixturesRespository.GetForATeam(match.Team.Id);
                 if (fixture != null)
                 {
                     if (fixture.FirstTeamScore > fixture.SecondTeamScore)
@@ -28,8 +33,8 @@ namespace FootballTeamManager.Skills
                 }
                 else
                 {
-                    fixture = await _fixturesRespository.GetForBTeam(match.Team.Id);
-                    if (fixture.SecondTeamScore> fixture.FirstTeamScore)
+                    fixture = _fixturesRespository.GetForBTeam(match.Team.Id);
+                    if (fixture.SecondTeamScore > fixture.FirstTeamScore)
                     {
                         skill++;
                     }

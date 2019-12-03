@@ -12,7 +12,7 @@ namespace FootballTeamManager.Skills.Infrastucture
             _context = new ApplicationDbContext();
         }
 
-        public ICollection<TeamPlayerAssociation> GetAllTeamsForPlayer(int playerId)
+        public IList<TeamPlayerAssociation> GetAllTeamsForPlayer(int playerId)
         {
             return _context.TeamPlayerAssociations.Include(x=>x.Team)
                 .Where(x => x.Player.Id == playerId).ToList();
@@ -21,6 +21,6 @@ namespace FootballTeamManager.Skills.Infrastucture
 
     public interface IPlayersTeamRepository
     {
-        ICollection<TeamPlayerAssociation> GetAllTeamsForPlayer(int playerId);
+        IList<TeamPlayerAssociation> GetAllTeamsForPlayer(int playerId);
     }
 }
