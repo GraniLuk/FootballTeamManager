@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using FootballTeamManager.Models;
 using FootballTeamManager.ViewModels;
 using AutoMapper;
+using FootballTeamManager.Skills;
 
 namespace FootballTeamManager.Controllers
 {
@@ -70,6 +71,11 @@ namespace FootballTeamManager.Controllers
             {
                 var config = new MapperConfiguration(cfg=>cfg.CreateMap<Fixture,Fixture>());
                 var fixtureFromDb = _context.Fixtures.Single(x => x.Id == fixture.Id);
+                if (fixtureFromDb.FirstTeamScore != fixture.FirstTeamScore)
+                {
+                    var updateSkillService = new UpdateSkillService();
+                    updateSkillService.UpdateSkillForAllParticipants(fixture);
+                }
                 config.CreateMapper().Map(fixture, fixtureFromDb);
                 _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
