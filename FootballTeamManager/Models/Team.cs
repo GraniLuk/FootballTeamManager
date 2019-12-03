@@ -9,8 +9,7 @@ namespace FootballTeamManager.Models
         public int Id { get; set; }
         [Required]
         [StringLength(12)]
-        public string Name { get; set; }
-        public List<Player> Players { get; set; }      
+        public string Name { get; set; }      
 
         public static Team CreateForDate(string Name, DateTime date)
         {

@@ -41,5 +41,7 @@ namespace FootballTeamManager.Skills.Infrastucture
     {
         Fixture GetForATeam(int teamId);
         Fixture GetForBTeam(int teamId);
+
+
     }
 }

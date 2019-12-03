@@ -20,11 +20,12 @@ namespace FootballTeamManager.Skills
         public void UpdateSkillForAllParticipants(Fixture fixture)
         {
             if (fixture == null) return;
-            foreach (var player in fixture.FirstTeam.Players)
+
+            foreach (var player in _playersTeamRespository.GetAllPlayersFromTeam(fixture.FirstTeam.Id))
             {
                 player.Skill = GetSkill(player.Id).Result;
             }
-            foreach (var player in fixture.SecondTeam.Players)
+            foreach (var player in _playersTeamRespository.GetAllPlayersFromTeam(fixture.SecondTeam.Id))
             {
                 player.Skill = GetSkill(player.Id).Result;
             }

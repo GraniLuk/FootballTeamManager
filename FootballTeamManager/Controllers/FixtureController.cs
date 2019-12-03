@@ -73,14 +73,6 @@ namespace FootballTeamManager.Controllers
                 var fixtureFromDb = _context.Fixtures.Include(x=>x.FirstTeam).Include(x=>x.SecondTeam).Single(x => x.Id == fixture.Id);
                 if (fixtureFromDb.FirstTeamScore != fixture.FirstTeamScore)
                 {
-                    fixtureFromDb.FirstTeam.Players = (from player in _context.Players
-                                                       join teamPlayerAssociation in _context.TeamPlayerAssociations on player.Id equals teamPlayerAssociation.Player.Id
-                                                       where teamPlayerAssociation.Team.Id == fixtureFromDb.FirstTeam.Id
-                                                       select player).ToList();
-                    fixtureFromDb.SecondTeam.Players = (from player in _context.Players
-                                                        join teamPlayerAssociation in _context.TeamPlayerAssociations on player.Id equals teamPlayerAssociation.Player.Id
-                                                        where teamPlayerAssociation.Team.Id == fixtureFromDb.SecondTeam.Id
-                                                        select player).ToList();
                     var updateSkillService = new UpdateSkillService();
                     updateSkillService.UpdateSkillForAllParticipants(fixtureFromDb);
                 }
