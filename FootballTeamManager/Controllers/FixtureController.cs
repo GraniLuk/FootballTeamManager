@@ -142,8 +142,8 @@ namespace FootballTeamManager.Controllers
                 var teamB = Team.CreateForDate("B", fixture.Date);
                 _context.Teams.Add(teamA);
                 _context.SaveChanges();
-                var teamPlayersA = teamA.SetPlayersFromDraw(_context.Players.Where(x => x.TeamNumber == 1));
-                var teamPlayersB = teamB.SetPlayersFromDraw(_context.Players.Where(x => x.TeamNumber == 2));
+                var teamPlayersA = Draw.SetPlayersFromDraw(teamA,_context.Players.Where(x => x.TeamNumber == 1));
+                var teamPlayersB = Draw.SetPlayersFromDraw(teamB,_context.Players.Where(x => x.TeamNumber == 2));
                 _context.TeamPlayerAssociations.AddRange(teamPlayersA);
                 _context.TeamPlayerAssociations.AddRange(teamPlayersB);
                 _context.SaveChanges();

@@ -20,7 +20,7 @@ namespace FootballTeamManager.Controllers
   
         public ActionResult ResetTeam()
         {
-            Team model = new Team();
+            var model = new Draw();
             if (ModelState.IsValid)
             {
                 model.ResetTeam();
@@ -32,7 +32,7 @@ namespace FootballTeamManager.Controllers
 
         public ActionResult NewDraw()
         {
-            Team model = new Team();
+            var model = new Draw();
             if (ModelState.IsValid)
             {
                 model.DrawTeams();
