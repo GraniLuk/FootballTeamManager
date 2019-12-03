@@ -18,7 +18,7 @@ namespace FootballTeamManager.Skills.Infrastucture
 
         private IList<TeamPlayerAssociation> GetAll()
         {
-            return _context.TeamPlayerAssociations.Include(x => x.Team).ToList();
+            return _context.TeamPlayerAssociations.Include(x => x.Team).Include(x=>x.Player).ToList();
         }
 
         public IList<TeamPlayerAssociation> GetAllTeamsForPlayer(int playerId)
@@ -26,10 +26,19 @@ namespace FootballTeamManager.Skills.Infrastucture
             return _allTeamPlayerAssociatons
                 .Where(x => x.Player.Id == playerId).ToList();
         }
+
+        public IEnumerable<Player> GetAllPlayersFromTeam(int teamId)
+        {
+           return (from player in _context.Players
+             join teamPlayerAssociation in _context.TeamPlayerAssociations on player.Id equals teamPlayerAssociation.Player.Id
+             where teamPlayerAssociation.Team.Id == teamId
+             select player).ToList();
+        }
     }
 
     public interface IPlayersTeamRepository
     {
         IList<TeamPlayerAssociation> GetAllTeamsForPlayer(int playerId);
+        IEnumerable<Player> GetAllPlayersFromTeam(int teamId);
     }
 }
