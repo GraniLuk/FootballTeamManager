@@ -33,7 +33,7 @@ namespace FootballTeamManager.Skills.Infrastucture
 
         private List<Fixture> GetAllFixtures()
         {
-            return _context.Fixtures.ToList();
+            return _context.Fixtures.Include(x=>x.FirstTeam).Include(x=>x.SecondTeam).ToList();
         }
     }
 
