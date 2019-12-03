@@ -70,11 +70,11 @@ namespace FootballTeamManager.Controllers
             if (ModelState.IsValid)
             {
                 var config = new MapperConfiguration(cfg=>cfg.CreateMap<Fixture,Fixture>());
-                var fixtureFromDb = _context.Fixtures.Single(x => x.Id == fixture.Id);
+                var fixtureFromDb = _context.Fixtures.Include(x=>x.FirstTeam).Include(x=>x.SecondTeam).Single(x => x.Id == fixture.Id);
                 if (fixtureFromDb.FirstTeamScore != fixture.FirstTeamScore)
                 {
                     var updateSkillService = new UpdateSkillService();
-                    updateSkillService.UpdateSkillForAllParticipants(fixture);
+                    updateSkillService.UpdateSkillForAllParticipants(fixtureFromDb);
                 }
                 config.CreateMapper().Map(fixture, fixtureFromDb);
                 _context.SaveChanges();

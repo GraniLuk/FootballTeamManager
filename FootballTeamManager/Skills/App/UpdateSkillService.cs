@@ -17,16 +17,16 @@ namespace FootballTeamManager.Skills
             _fixturesRespository = new FixturesRepository();
         }   
 
-        public async void UpdateSkillForAllParticipants(Fixture fixture)
+        public void UpdateSkillForAllParticipants(Fixture fixture)
         {
             if (fixture == null) return;
             foreach (var player in fixture.FirstTeam.Players)
             {
-                player.Skill = await GetSkill(player.Id);
+                player.Skill = GetSkill(player.Id).Result;
             }
             foreach (var player in fixture.SecondTeam.Players)
             {
-                player.Skill = await GetSkill(player.Id);
+                player.Skill = GetSkill(player.Id).Result;
             }
         }
 
