@@ -310,7 +310,7 @@
     <Compile Include="Models\Team.cs" />
     <Compile Include="Models\TeamPlayerAssociation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Skills\App\GetSkillService.cs" />
+    <Compile Include="Skills\App\UpdateSkillService.cs" />
     <Compile Include="Skills\Infrastucture\FixturesRepository.cs" />
     <Compile Include="Skills\Infrastucture\PlayersTeamRepository.cs" />
     <Compile Include="Startup.cs" />

@@ -4,13 +4,13 @@ using System.Threading.Tasks;
 
 namespace FootballTeamManager.Skills
 {
-    public class GetSkillService
+    public class UpdateSkillService
     {
         private const int MinimumMatchesToBeRanked = 5;
         private const int MaximumMatchesToRanking = 10;
         private readonly IPlayersTeamRepository _playersTeamRespository;
         private readonly IFixturesRepository _fixturesRespository;
-        public GetSkillService()
+        public UpdateSkillService()
         {
             _playersTeamRespository = new PlayersTeamRepository();
             _fixturesRespository = new FixturesRepository();
