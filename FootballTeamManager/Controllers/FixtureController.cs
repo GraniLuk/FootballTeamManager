@@ -65,11 +65,13 @@ namespace FootballTeamManager.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Fixture fixture)
+        public ActionResult Edit([Bind(Include = "Id,Date,FirstTeam,SecondTeam,FirstTeamScore,SecondTeamScore,Season")]Fixture fixture)
         {
             if (ModelState.IsValid)
             {
-                var config = new MapperConfiguration(cfg=>cfg.CreateMap<Fixture,Fixture>());
+                var config = new MapperConfiguration(cfg=>cfg.CreateMap<Fixture,Fixture>()
+                .ForMember(dest => dest.FirstTeam, opts => opts.Ignore())
+                .ForMember(dest => dest.SecondTeam, opts =>opts.Ignore()));
                 var fixtureFromDb = _context.Fixtures.Include(x=>x.FirstTeam).Include(x=>x.SecondTeam).Single(x => x.Id == fixture.Id);
                 if (fixtureFromDb.FirstTeamScore != fixture.FirstTeamScore)
                 {
