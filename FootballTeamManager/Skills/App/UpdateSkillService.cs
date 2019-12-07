@@ -11,10 +11,12 @@ namespace FootballTeamManager.Skills
         private const int MaximumMatchesToRanking = 10;
         private readonly IPlayersTeamRepository _playersTeamRespository;
         private readonly IFixturesRepository _fixturesRespository;
+        private readonly IPlayerRepository _playerRepository;
         public UpdateSkillService()
         {
             _playersTeamRespository = new PlayersTeamRepository();
             _fixturesRespository = new FixturesRepository();
+            _playerRepository = new PlayerRepository();
         }   
 
         public void UpdateSkillForAllParticipants(Fixture fixture)
@@ -24,10 +26,12 @@ namespace FootballTeamManager.Skills
             foreach (var player in _playersTeamRespository.GetAllPlayersFromTeam(fixture.FirstTeam.Id))
             {
                 player.Skill = GetSkill(player.Id).Result;
+                _playerRepository.Update(player);
             }
             foreach (var player in _playersTeamRespository.GetAllPlayersFromTeam(fixture.SecondTeam.Id))
             {
                 player.Skill = GetSkill(player.Id).Result;
+                _playerRepository.Update(player);
             }
         }
 

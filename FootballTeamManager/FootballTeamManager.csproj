@@ -313,6 +313,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Skills\App\UpdateSkillService.cs" />
     <Compile Include="Skills\Infrastucture\FixturesRepository.cs" />
+    <Compile Include="Skills\Infrastucture\PlayerRepository.cs" />
     <Compile Include="Skills\Infrastucture\PlayersTeamRepository.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\FixtureCreateViewModel.cs" />
