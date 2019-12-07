@@ -78,7 +78,7 @@ namespace FootballTeamManager.Controllers
                     var updateSkillService = new UpdateSkillService();
                     updateSkillService.UpdateSkillForAllParticipants(fixtureFromDb);
                 }
-                _context.Database.SqlQuery<Fixture>("EXECUTE [dbo].[sp_Ranking_Aktualizuj]");
+                var result = _context.Database.ExecuteSqlCommand("EXECUTE [dbo].[sp_Ranking_Aktualizuj]");
                 config.CreateMapper().Map(fixture, fixtureFromDb);
                 _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
