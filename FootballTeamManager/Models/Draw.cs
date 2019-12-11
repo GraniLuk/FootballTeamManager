@@ -167,5 +167,33 @@ namespace FootballTeamManager.Models
             _secondTeam = b2;
             _firstTeam = a1;
         }
+
+        public string GetNumberOfPlayer()
+        {
+            return (_firstTeam.Count + _secondTeam.Count).ToString();
+        }
+
+        public string GetPlayerFromFirstTeam(int id)
+        {
+            var result = "";
+
+            foreach (var item in _firstTeam.Where(x => x.Lp == id).Select(z => z.ShortName))
+            {
+                result = item;
+            }
+            return result;
+        }
+
+        public string GetPlayerFromSecondTeam(int id)
+        {
+            string result = "";
+
+            foreach (var item in _secondTeam.Where(x => x.Lp == id).Select(z => z.ShortName))
+            {
+                result = item;
+            }
+
+            return result;
+        }
     }
 }
