@@ -13,9 +13,8 @@ namespace FootballTeamManager.Controllers
         // GET: Draw
         public ActionResult Index()
         {
-            var a = new Team();
             ViewBag.ShowSaveButton = (bool?)TempData["ShowSaveButton"] ?? false;
-            return View(a);
+            return View(new Draw());
         }
   
         public ActionResult ResetTeam()
