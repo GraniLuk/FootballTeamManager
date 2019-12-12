@@ -7,7 +7,7 @@ namespace FootballTeamManager.Skills
 {
     public class UpdateSkillService
     {
-        private const int MinimumMatchesToBeRanked = 5;
+        private const int MinimumMatchesToBeRanked = 1;
         private const int MaximumMatchesToRanking = 10;
         private readonly IPlayersTeamRepository _playersTeamRespository;
         private readonly IFixturesRepository _fixturesRespository;
