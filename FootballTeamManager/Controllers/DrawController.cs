@@ -13,30 +13,30 @@ namespace FootballTeamManager.Controllers
         // GET: Draw
         public ActionResult Index()
         {
-            var a = new Team();
-           
-           
-            return View(a);
+            ViewBag.ShowSaveButton = (bool?)TempData["ShowSaveButton"] ?? false;
+            return View(new Draw());
         }
   
         public ActionResult ResetTeam()
         {
-            Team model = new Team();
+            var model = new Draw();
             if (ModelState.IsValid)
             {
                 model.ResetTeam();
             }
+            TempData["ShowSaveButton"] = false;
             return RedirectToAction("Index", "Draw");
 
         }
 
         public ActionResult NewDraw()
         {
-            Team model = new Team();
+            var model = new Draw();
             if (ModelState.IsValid)
             {
                 model.DrawTeams();
             }
+            TempData["ShowSaveButton"] = true;
             return RedirectToAction("Index", "Draw");
 
         }
