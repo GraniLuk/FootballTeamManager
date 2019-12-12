@@ -73,14 +73,15 @@ namespace FootballTeamManager.Controllers
                 .ForMember(dest => dest.FirstTeam, opts => opts.Ignore())
                 .ForMember(dest => dest.SecondTeam, opts =>opts.Ignore()));
                 var fixtureFromDb = _context.Fixtures.Include(x=>x.FirstTeam).Include(x=>x.SecondTeam).Single(x => x.Id == fixture.Id);
-                if (fixtureFromDb.FirstTeamScore != fixture.FirstTeamScore)
+                var scoreChanged = fixtureFromDb.FirstTeamScore != fixture.FirstTeamScore;
+                config.CreateMapper().Map(fixture, fixtureFromDb);
+                _context.SaveChanges();
+                if (scoreChanged)
                 {
                     var updateSkillService = new UpdateSkillService();
                     updateSkillService.UpdateSkillForAllParticipants(fixtureFromDb);
+                    var result = _context.Database.ExecuteSqlCommand("EXECUTE [dbo].[sp_Ranking_Aktualizuj]");
                 }
-                config.CreateMapper().Map(fixture, fixtureFromDb);
-                _context.SaveChanges();
-                var result = _context.Database.ExecuteSqlCommand("EXECUTE [dbo].[sp_Ranking_Aktualizuj]");
                 return RedirectToAction(nameof(Index));
             }
 
