@@ -24,7 +24,7 @@ namespace FootballTeamManager.Skills.Infrastucture
         public IList<TeamPlayerAssociation> GetAllTeamsForPlayer(int playerId)
         {
             return _allTeamPlayerAssociatons
-                .Where(x => x.Player.Id == playerId).ToList();
+                .Where(x => x.Player.Id == playerId).OrderByDescending(x=>x.Id).ToList();
         }
 
         public IEnumerable<Player> GetAllPlayersFromTeam(int teamId)
