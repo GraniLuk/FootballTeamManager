@@ -81,6 +81,7 @@ namespace FootballTeamManager.Controllers
                     var updateSkillService = new UpdateSkillService();
                     updateSkillService.UpdateSkillForAllParticipants(fixtureFromDb);
                     var result = _context.Database.ExecuteSqlCommand("EXECUTE [dbo].[sp_Ranking_Aktualizuj]");
+                    _context.SaveChanges();
                 }
                 return RedirectToAction(nameof(Index));
             }
