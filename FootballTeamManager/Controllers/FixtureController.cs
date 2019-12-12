@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using FootballTeamManager.Models;
 using FootballTeamManager.ViewModels;
 using AutoMapper;
+using FootballTeamManager.Skills;
 
 namespace FootballTeamManager.Controllers
 {
@@ -64,14 +65,23 @@ namespace FootballTeamManager.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Fixture fixture)
+        public ActionResult Edit([Bind(Include = "Id,Date,FirstTeam,SecondTeam,FirstTeamScore,SecondTeamScore,Season")]Fixture fixture)
         {
             if (ModelState.IsValid)
             {
-                var config = new MapperConfiguration(cfg=>cfg.CreateMap<Fixture,Fixture>());
-                var fixtureFromDb = _context.Fixtures.Single(x => x.Id == fixture.Id);
+                var config = new MapperConfiguration(cfg=>cfg.CreateMap<Fixture,Fixture>()
+                .ForMember(dest => dest.FirstTeam, opts => opts.Ignore())
+                .ForMember(dest => dest.SecondTeam, opts =>opts.Ignore()));
+                var fixtureFromDb = _context.Fixtures.Include(x=>x.FirstTeam).Include(x=>x.SecondTeam).Single(x => x.Id == fixture.Id);
+                var scoreChanged = fixtureFromDb.FirstTeamScore != fixture.FirstTeamScore;
                 config.CreateMapper().Map(fixture, fixtureFromDb);
                 _context.SaveChanges();
+                if (scoreChanged)
+                {
+                    var updateSkillService = new UpdateSkillService();
+                    updateSkillService.UpdateSkillForAllParticipants(fixtureFromDb);
+                    var result = _context.Database.ExecuteSqlCommand("EXECUTE [dbo].[sp_Ranking_Aktualizuj]");
+                }
                 return RedirectToAction(nameof(Index));
             }
 
@@ -128,9 +138,21 @@ namespace FootballTeamManager.Controllers
         [ValidateAntiForgeryToken]
         [Authorize(Roles = RoleName.Admin)]
         public ActionResult Create([Bind(Include = "Date")] Fixture fixture)
-        {   
+        { 
             if (ModelState.IsValid)
             {
+                var teamA = Team.CreateForDate("A", fixture.Date);
+                _context.Teams.Add(teamA);
+                var teamB = Team.CreateForDate("B", fixture.Date);
+                _context.Teams.Add(teamA);
+                _context.SaveChanges();
+                var teamPlayersA = Draw.SetPlayersFromDraw(teamA,_context.Players.Where(x => x.TeamNumber == 1));
+                var teamPlayersB = Draw.SetPlayersFromDraw(teamB,_context.Players.Where(x => x.TeamNumber == 2));
+                _context.TeamPlayerAssociations.AddRange(teamPlayersA);
+                _context.TeamPlayerAssociations.AddRange(teamPlayersB);
+                _context.SaveChanges();
+                fixture.FirstTeam = teamA;
+                fixture.SecondTeam = teamB;
                 _context.Fixtures.Add(fixture);
                 _context.SaveChanges();
                 return RedirectToAction("Index");

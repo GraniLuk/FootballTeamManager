@@ -26,6 +26,7 @@ namespace FootballTeamManager.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            var exam = _db.Players.ToList();
 
             var teamDisplayViewModel = new TeamDisplayViewModel()
             {
