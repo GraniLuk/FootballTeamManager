@@ -65,6 +65,7 @@ namespace FootballTeamManager.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = RoleName.Admin)]
         public ActionResult Edit([Bind(Include = "Id,Date,FirstTeam,SecondTeam,FirstTeamScore,SecondTeamScore,Season")]Fixture fixture)
         {
             if (ModelState.IsValid)
