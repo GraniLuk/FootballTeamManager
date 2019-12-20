@@ -66,7 +66,7 @@ echo Handling .NET Web Application deployment.
 :: 1. Restore NuGet packages
 IF /I "DrawTeams.sln" NEQ "" (
   :: replace origin with
-  call :ExecuteCmd nuget restore "%DEPLOYMENT_SOURCE%\slnpath" -MSBuildPath "%MSBUILD_15_DIR%"
+  call :ExecuteCmd nuget restore "%DEPLOYMENT_SOURCE%\DrawTeams.sln" -MSBuildPath "%MSBUILD_15_DIR%"
   IF !ERRORLEVEL! NEQ 0 goto error
 )
 
