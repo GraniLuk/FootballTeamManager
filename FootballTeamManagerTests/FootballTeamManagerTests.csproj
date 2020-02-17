@@ -54,9 +54,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FootballTeamManager\FootballTeamManager.csproj">
-      <Project>{295aec37-e967-47cf-8c0e-539d04aad6c3}</Project>
-      <Name>FootballTeamManager</Name>
+    <ProjectReference Include="..\FootballManager\FootballManager.csproj">
+      <Project>{d35ba8ab-2fa3-4af7-a355-877abd8f2aef}</Project>
+      <Name>FootballManager</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

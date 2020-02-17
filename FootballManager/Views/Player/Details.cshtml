@@ -1,0 +1,45 @@
+﻿@model FootballManager.ViewModels.PlayerDisplayViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Player.Name</h2>
+<h3>Skill: @Model.Player.Skill</h3>
+
+<div>
+    <h4>Historia spotkań</h4>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Fixture</th>
+                <th>First team</th>
+                <th>Second team</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var fixture in Model.Fixtures)
+            {
+                <tr class="@GetClassFromLevel(fixture.IsWon)">
+                    <td>@fixture.Date</td>
+                    <td>@fixture.FirstTeam.Name</td>
+                    <td>@fixture.SecondTeam.Name</td>
+                    <td>@fixture.Score</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Player.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+@functions{
+    public string GetClassFromLevel(bool isWon)
+    {
+        return isWon ? "success" : "danger";
+    }
+}

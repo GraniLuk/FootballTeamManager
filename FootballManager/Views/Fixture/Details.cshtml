@@ -1,0 +1,44 @@
+﻿@model FootballManager.ViewModels.FixtureDisplayViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Mecz rozegrany: @Model.Date</h2>
+<h2>Wynik: @Model.FirstTeamScore : @Model.SecondTeamScore</h2>
+
+<h4>Składy na ten mecz:</h4>
+<table style="float: left;">
+    <thead>
+        <tr>
+            <th>Pierwsza drużyna</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var player in Model.FirstTeamPlayers)
+        {
+            <tr>
+                <td>@player.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<table style="display: inline-block;">
+    <thead>
+        <tr>
+            <th>Druga drużyna</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var player in Model.SecondTeamPlayers)
+        {
+            <tr>
+                <td>@player.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

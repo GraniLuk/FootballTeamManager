@@ -1,0 +1,429 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+img {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+}
+
+.boisko {
+    z-index: 1;
+    position: relative;
+}
+
+.imgB1 {
+    z-index: 3;
+    top: 810px;
+    left: 280px;
+    display: none;
+}
+
+.imgB2 {
+    z-index: 3;
+    top: 670px;
+    left: 50px;
+    display: none;
+}
+
+.imgB3 {
+    z-index: 3;
+    top: 670px;
+    left: 280px;
+    display: none;
+}
+
+.imgB4 {
+    z-index: 3;
+    top: 670px;
+    left: 510px;
+    display: none;
+}
+
+.imgB5 {
+    z-index: 3;
+    top: 530px;
+    left: 50px;
+    display: none;
+}
+
+.imgB6 {
+    z-index: 3;
+    top: 530px;
+    left: 280px;
+    display: none;
+}
+
+.imgB7 {
+    z-index: 3;
+    top: 530px;
+    left: 510px;
+    display: none;
+}
+
+.imgB8 {
+    z-index: 3;
+    top: 70px;
+    left: 280px;
+    display: none;
+}
+
+.imgB9 {
+    z-index: 3;
+    top: 220px;
+    left: 50px;
+    display: none;
+}
+
+.imgB10 {
+    z-index: 3;
+    top: 220px;
+    left: 280px;
+    display: none;
+}
+
+.imgB11 {
+    z-index: 3;
+    top: 220px;
+    left: 510px;
+    display: none;
+}
+
+.imgB12 {
+    z-index: 3;
+    top: 370px;
+    left: 50px;
+    display: none;
+}
+
+.imgB13 {
+    z-index: 3;
+    top: 370px;
+    left: 280px;
+    display: none;
+}
+
+.imgB14 {
+    z-index: 3;
+    top: 370px;
+    left: 510px;
+    display: none;
+}
+
+.containerdiv {
+    border: 0;
+    float: initial;
+    position: relative;
+}
+
+.tekst_koszulka1 {
+    position: absolute;
+    z-index: 3;
+    top: 845px;
+    left: 313px;
+    font-weight: bold;
+    font-size: 100%;
+    display: none;
+    color: white;
+}
+
+.tekst_koszulka2 {
+    position: absolute;
+    z-index: 3;
+    top: 700px;
+    left: 85px;
+    font-weight: bold;
+    font-size: 100%;
+    display: none;
+    color: white;
+}
+
+.tekst_koszulka3 {
+    position: absolute;
+    z-index: 3;
+    top: 700px;
+    left: 313px;
+    font-weight: bold;
+    font-size: 100%;
+    display: none;
+    color: white;
+}
+
+.tekst_koszulka4 {
+    position: absolute;
+    z-index: 3;
+    top: 700px;
+    left: 550px;
+    font-weight: bold;
+    font-size: 100%;
+    display: none;
+    color: white;
+}
+
+.tekst_koszulka5 {
+    position: absolute;
+    z-index: 3;
+    top: 560px;
+    left: 85px;
+    font-weight: bold;
+    font-size: 100%;
+    display: none;
+    color: white;
+}
+
+.tekst_koszulka6 {
+    position: absolute;
+    z-index: 3;
+    top: 560px;
+    left: 313px;
+    font-weight: bold;
+    font-size: 100%;
+    display: none;
+    color: white;
+}
+
+.tekst_koszulka7 {
+    position: absolute;
+    z-index: 3;
+    top: 560px;
+    left: 550px;
+    font-weight: bold;
+    font-size: 100%;
+    display: none;
+    color: white;
+}
+
+.tekst_koszulka8 {
+    position: absolute;
+    z-index: 3;
+    top: 100px;
+    left: 319px;
+    font-weight: bold;
+    font-size: 100%;
+    display: none;
+    color: black;
+}
+
+.tekst_koszulka9 {
+    position: absolute;
+    z-index: 3;
+    top: 250px;
+    left: 90px;
+    font-weight: bold;
+    font-size: 100%;
+    display: none;
+    color: black;
+}
+
+.tekst_koszulka10 {
+    position: absolute;
+    z-index: 3;
+    top: 250px;
+    left: 318px;
+    font-weight: bold;
+    font-size: 100%;
+    display: none;
+    color: black;
+}
+
+.tekst_koszulka11 {
+    position: absolute;
+    z-index: 3;
+    top: 250px;
+    left: 550px;
+    font-weight: bold;
+    font-size: 100%;
+    display: none;
+    color: black;
+}
+
+.tekst_koszulka12 {
+    position: absolute;
+    z-index: 3;
+    top: 400px;
+    left: 90px;
+    font-weight: bold;
+    font-size: 100%;
+    display: none;
+    color: black;
+}
+
+.tekst_koszulka13 {
+    position: absolute;
+    z-index: 3;
+    top: 400px;
+    left: 318px;
+    font-weight: bold;
+    font-size: 100%;
+    display: none;
+    color: black;
+}
+
+.tekst_koszulka14 {
+    position: absolute;
+    z-index: 3;
+    top: 400px;
+    left: 550px;
+    font-weight: bold;
+    font-size: 100%;
+    display: none;
+    color: black;
+}
+
+.table > thead > tr > td.summary,
+.table > tbody > tr > td.summary,
+.table > tfoot > tr > td.summary,
+.table > thead > tr > th.summary,
+.table > tbody > tr > th.summary,
+.table > tfoot > tr > th.summary,
+.table > thead > tr.summary > td,
+.table > tbody > tr.summary > td,
+.table > tfoot > tr.summary > td,
+.table > thead > tr.summary > th,
+.table > tbody > tr.summary > th,
+.table > tfoot > tr.summary > th {
+    background-color: lightskyblue;
+    border-color: black;
+}
+
+
+
+.myButton {
+    -moz-box-shadow: 0px 1px 0px 0px #f0f7fa;
+    -webkit-box-shadow: 0px 1px 0px 0px #f0f7fa;
+    box-shadow: 0px 1px 0px 0px #f0f7fa;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #33bdef), color-stop(1, #019ad2));
+    background: -moz-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+    background: -webkit-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+    background: -o-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+    background: -ms-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+    background: linear-gradient(to bottom, #33bdef 5%, #019ad2 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#33bdef', endColorstr='#019ad2',GradientType=0);
+    background-color: #33bdef;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    border: 1px solid #057fd0;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 6px 24px;
+    text-decoration: none;
+    text-shadow: 0px -1px 0px #5b6178;
+    position: relative;
+    transition: .5s ease;
+    top: 35px;
+    left: 25px;
+    z-index: 3;
+}
+
+    .myButton:hover {
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #019ad2), color-stop(1, #33bdef));
+        background: -moz-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+        background: -webkit-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+        background: -o-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+        background: -ms-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+        background: linear-gradient(to bottom, #019ad2 5%, #33bdef 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#019ad2', endColorstr='#33bdef',GradientType=0);
+        background-color: #019ad2;
+    }
+
+    .myButton:active {
+        /*position:relative;*/
+        top: 1px;
+        /*z-index: 3;*/
+    }
+
+.margin-Top15 {
+    margin-top: 15px;
+}
+
+.margin-bottom24 {
+    margin-bottom: 24px;
+}
+
+.navbar-brand-my {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    background-color: darkseagreen;
+}

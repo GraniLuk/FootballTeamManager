@@ -1,0 +1,111 @@
+﻿@model FootballManager.Models.Draw
+@{
+    ViewBag.Title = "Losowanie";
+}
+
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+
+
+
+
+    <script>
+function myFunction() {
+    alert( "");
+}
+
+
+    </script>
+
+
+
+    <script type="text/javascript">
+
+            window.onload = function(){
+                //debugger;
+                                       window.displayCOUNTER = 1;
+                                            function cycleImage() {
+                                                                    displayImgCount = displayCOUNTER;
+
+                                                                    document.getElementById("player" + displayImgCount).style.display = "block";
+                                                                    document.getElementById("tekst" + displayImgCount).style.display = "block";
+                                                                    displayCOUNTER++;
+
+                                                                    if (displayCOUNTER <= @Model.GetNumberOfPlayer()+ (14 -@Model.GetNumberOfPlayer()) )
+                                                                    {
+                                                                        setTimeout(cycleImage, 1000);
+                                                                    }
+                                                                 }
+                                            if (displayCOUNTER != 15) {
+
+                                                cycleImage();
+
+                                                 }
+
+                                        }
+
+
+
+
+    </script>
+
+
+    @(User.IsInRole(FootballManager.Models.RoleName.Admin) ? Html.Partial("_drawTeam") : Html.Partial("_empty"))
+    <div class="containerdiv">
+
+
+
+
+        @*<button class="myButton" onclick="window.location.reload()">Odśwież</button>*@
+
+
+
+        <img class="boisko" src="~/themes/base/images/pitch.jpg">
+        <img class="imgB1" id="player1" src="~/Images/koszulka-czarna.png">
+        <img class="imgB2" id="player2" src="~/Images/koszulka-czarna.png">
+        <img class="imgB3" id="player3" src="~/Images/koszulka-czarna.png">
+        <img class="imgB4" id="player4" src="~/Images/koszulka-czarna.png">
+        <img class="imgB5" id="player5" src="~/Images/koszulka-czarna.png">
+        <img class="imgB6" id="player6" src="~/Images/koszulka-czarna.png">
+        <img class="imgB7" id="player7" src="~/Images/koszulka-czarna.png">
+
+        <img class="imgB8" id="player8" src="~/Images/koszulka-biala.png">
+        <img class="imgB9" id="player9" src="~/Images/koszulka-biala.png">
+        <img class="imgB10" id="player10" src="~/Images/koszulka-biala.png">
+        <img class="imgB11" id="player11" src="~/Images/koszulka-biala.png">
+        <img class="imgB12" id="player12" src="~/Images/koszulka-biala.png">
+        <img class="imgB13" id="player13" src="~/Images/koszulka-biala.png">
+        <img class="imgB14" id="player14" src="~/Images/koszulka-biala.png">
+
+
+        <p class="tekst_koszulka1" id="tekst1">@Model.GetPlayerFromFirstTeam(1)</p>
+        <p class="tekst_koszulka2" id="tekst2">@Model.GetPlayerFromFirstTeam(2)</p>
+        <p class="tekst_koszulka3" id="tekst3">@Model.GetPlayerFromFirstTeam(3)</p>
+        <p class="tekst_koszulka4" id="tekst4">@Model.GetPlayerFromFirstTeam(4)</p>
+        <p class="tekst_koszulka5" id="tekst5">@Model.GetPlayerFromFirstTeam(5)</p>
+        <p class="tekst_koszulka6" id="tekst6">@Model.GetPlayerFromFirstTeam(6)</p>
+        <p class="tekst_koszulka7" id="tekst7">@Model.GetPlayerFromFirstTeam(7)</p>
+
+        <p class="tekst_koszulka8" id="tekst8">@Model.GetPlayerFromSecondTeam(1)</p>
+        <p class="tekst_koszulka9" id="tekst9">@Model.GetPlayerFromSecondTeam(2)</p>
+        <p class="tekst_koszulka10" id="tekst10">@Model.GetPlayerFromSecondTeam(3)</p>
+        <p class="tekst_koszulka11" id="tekst11">@Model.GetPlayerFromSecondTeam(4)</p>
+        <p class="tekst_koszulka12" id="tekst12">@Model.GetPlayerFromSecondTeam(5)</p>
+        <p class="tekst_koszulka13" id="tekst13">@Model.GetPlayerFromSecondTeam(6)</p>
+        <p class="tekst_koszulka14" id="tekst14">@Model.GetPlayerFromSecondTeam(7)</p>
+
+    </div>
+
+    @*src="~/Content/themes/base/images/Chelsea-Home-icon.png">*@
+    @*https://cdn0.iconfinder.com/data/icons/england/154/england-sport-wear-shirt-uniform-football-128.png">*@
+
+</body>
+</html>
+
+
+
