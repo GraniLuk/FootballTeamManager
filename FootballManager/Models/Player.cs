@@ -28,16 +28,16 @@ namespace FootballManager.Models
         [StringLength(30)]
         public string DoodleName { get; set; }
 
-        public void SetAsActiveBasedOnDoodleList(List<DoodleApi.Model.Participant> activePlayers)
-        {
-            if (activePlayers.Any(x => x.name == DoodleName))
-            {
-                Active = true;
-            }
-            else
-            {
-                Active = false;
-            }
-        }
+        //public void SetAsActiveBasedOnDoodleList(List<DoodleApi.Model.Participant> activePlayers)
+        //{
+        //    if (activePlayers.Any(x => x.name == DoodleName))
+        //    {
+        //        Active = true;
+        //    }
+        //    else
+        //    {
+        //        Active = false;
+        //    }
+        //}
     }
 }
