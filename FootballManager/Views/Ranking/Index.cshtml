@@ -62,8 +62,10 @@
 
 @section scripts
 {
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/b-1.4.2/b-html5-1.4.2/b-print-1.4.2/sl-1.2.3/datatables.min.css" />
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/b-1.4.2/b-html5-1.4.2/b-print-1.4.2/sl-1.2.3/datatables.min.js"></script>
     <script>
-        $(function() {
+        $(function () {
             $("#ranking").dataTable({
                 "columnDefs": [
                     { "orderData": 1, "targets": [0] }
