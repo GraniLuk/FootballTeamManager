@@ -17,7 +17,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Date, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Date, new { @class = "form-control", @type = "datetime-local", @Value = @Model.Date.ToString("yyyy-MM-ddThh:mm") })
+                @Html.TextBoxFor(model => model.Date, new { @id="basicDate", @class = "form-control-my" })
                 @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -32,3 +32,20 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+<link rel="stylesheet" href="~/css/flatpickr.min.css">
+
+@section scripts {
+
+    <script src="~/lib/flatpickr/flatpickr.js"></script>
+
+    <script>
+
+     $("#basicDate").flatpickr({
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+    defaultDate: new Date(),
+    time_24hr: true
+});</script>
+}
+
