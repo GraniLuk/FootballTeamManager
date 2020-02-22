@@ -3,13 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoodleParser", "DoodleParser\DoodleParser.csproj", "{D64E24E0-1772-40CF-B28D-67BF89B74235}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoodleParserTests", "DoodleParserTests\DoodleParserTests.csproj", "{A751E904-94A1-4FBD-86FD-5A2EAF9FB41B}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FootballManager", "FootballManager\FootballManager.csproj", "{D35BA8AB-2FA3-4AF7-A355-877ABD8F2AEF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FootballManagerTests", "FootballManagerTests\FootballManagerTests.csproj", "{B3086F0A-4594-4EE7-BB52-425E82B4DC00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,22 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D64E24E0-1772-40CF-B28D-67BF89B74235}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D64E24E0-1772-40CF-B28D-67BF89B74235}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D64E24E0-1772-40CF-B28D-67BF89B74235}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D64E24E0-1772-40CF-B28D-67BF89B74235}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A751E904-94A1-4FBD-86FD-5A2EAF9FB41B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A751E904-94A1-4FBD-86FD-5A2EAF9FB41B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A751E904-94A1-4FBD-86FD-5A2EAF9FB41B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A751E904-94A1-4FBD-86FD-5A2EAF9FB41B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D35BA8AB-2FA3-4AF7-A355-877ABD8F2AEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D35BA8AB-2FA3-4AF7-A355-877ABD8F2AEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D35BA8AB-2FA3-4AF7-A355-877ABD8F2AEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D35BA8AB-2FA3-4AF7-A355-877ABD8F2AEF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B3086F0A-4594-4EE7-BB52-425E82B4DC00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B3086F0A-4594-4EE7-BB52-425E82B4DC00}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B3086F0A-4594-4EE7-BB52-425E82B4DC00}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B3086F0A-4594-4EE7-BB52-425E82B4DC00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
