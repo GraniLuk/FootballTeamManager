@@ -22,7 +22,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Date, new { @class = "form-control", @type = "datetime-local", @Value = @Model.Date.ToString("yyyy-MM-ddThh:mm") })
+                @Html.TextBoxFor(model => model.Date, new { @id="basicDate", @class = "form-control-my", @type = "datetime-local", @Value = @Model.Date.ToString("yyyy-MM-dd HH:mm") })
                 @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -55,21 +55,18 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
-<link href="@Url.Content("~/Content/themes/base/jquery-ui.min.css")" rel="stylesheet" />
-@section scripts
-{
-    <!-- Required jQuery and jQuery UI Javascript references -->
-    <script src="~/Scripts/jquery-1.12.4.min.js"></script>
-    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            // This will make every element with the class "date-picker" into a DatePicker element
-            $('.date-picker').datepicker({
-                changeMonth: true,
-                changeYear: true,
-                dateFormat: 'dd/mm/yy'
-            });
+<link rel="stylesheet" href="~/css/flatpickr.min.css">
+@section scripts {
 
-        })
+    <script src="~/lib/flatpickr/flatpickr.js"></script>
+
+    <script>
+        var date = '@Model.Date.ToString("yyyy-MM-dd HH:mm")';
+        $("#basicDate").flatpickr({
+            enableTime: true,
+			dateFormat: "Y-m-d H:i",
+			defaultDate: date,
+            time_24hr: true
+		});
     </script>
 }
