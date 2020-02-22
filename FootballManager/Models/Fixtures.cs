@@ -9,7 +9,7 @@ namespace FootballManager.Models
         public int Id { get; set; }
         [Required]
         [Display(Name = "Data")]
-        [DataType(DataType.Date)]
+        [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime Date { get; set; } = DateTime.Now;
         [ForeignKey("FirstTeam_Id")]
