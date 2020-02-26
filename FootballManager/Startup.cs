@@ -1,4 +1,5 @@
 //using DoodleApi;
+using DoodleApi;
 using FootballManager.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,7 +33,7 @@ namespace FootballManager
             services.AddRazorPages();
             services.AddRazorPages()
                         .AddRazorRuntimeCompilation();
-            //services.AddSingleton<IApi>(s => new DoodleApi.DoodleApi(Configuration.GetValue<string>("DoodleApi")));
+            services.AddSingleton<IApi>(s => new DoodleApi.DoodleApi(Configuration.GetValue<string>("DoodleApi")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
