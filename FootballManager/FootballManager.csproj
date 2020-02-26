@@ -23,4 +23,9 @@
     <Folder Include="Content\themes\" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <ProjectReference Include="..\DoodleParser\DoodleParser.csproj" />
+  </ItemGroup>
+
 </Project>
