@@ -4,6 +4,7 @@ using NUnit.Framework;
 using System;
 using System.IO;
 using System.Linq;
+using System.Resources;
 
 namespace DoodleParserTests
 {
@@ -15,7 +16,8 @@ namespace DoodleParserTests
         public void ParseRootObject()
         {
             string responseString = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "\\TestData\\bqsFile.json");
-    
+
+
             _rootObject = JsonConvert.DeserializeObject<RootObject>(responseString);
         }
 

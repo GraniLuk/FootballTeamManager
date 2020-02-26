@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net;
-using System.Net.Http;
-using Newtonsoft.Json;
-using System.Linq;
 using DoodleApi.Model;
 using DoodleApi.Client;
 

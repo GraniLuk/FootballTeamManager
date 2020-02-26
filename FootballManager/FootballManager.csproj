@@ -20,12 +20,12 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Soures\Repos\FootballTeamManager\DoodleParser\DoodleParser.csproj" />
+    <Folder Include="Content\themes\" />
   </ItemGroup>
 
 
   <ItemGroup>
-    <Folder Include="Content\themes\" />
+    <ProjectReference Include="..\DoodleParser\DoodleParser.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,10 +1,8 @@
 ﻿using DoodleApi.Model;
-using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
-using System.Runtime.Serialization;
+using System.Text.Json;
 
 namespace DoodleApi.Client
 {
@@ -23,7 +21,7 @@ namespace DoodleApi.Client
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             Uri url = new Uri(DoodleUrl);
             var responseString = client.GetStringAsync(url).Result;
-            return JsonConvert.DeserializeObject<RootObject>(responseString);
+            return JsonSerializer.Deserialize<RootObject>(responseString);
         }
 
     }
