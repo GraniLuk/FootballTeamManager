@@ -9,6 +9,6 @@ namespace DoodleApi.Model
         public long startDateTime { get; set; }
         public long endDateTime { get; set; }
         public bool available { get; set; }
-        public DateTime ReadableDate => DateTimeOffset.FromUnixTimeMilliseconds(startDateTime).LocalDateTime;
+        public DateTime ReadableDate => DateTimeOffset.FromUnixTimeMilliseconds(startDateTime).UtcDateTime;
     }
 }

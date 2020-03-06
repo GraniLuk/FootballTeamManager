@@ -26,7 +26,7 @@ namespace DoodleParserTests
         {
             var option = _rootObject.options.FirstOrDefault();
 
-            Assert.AreEqual(option.ReadableDate, new DateTime(2019, 10, 9, 20, 30,0));
+            Assert.AreEqual(option.ReadableDate, new DateTime(2019, 10, 9, 18, 30,0));
         }
 
         [Test]
@@ -34,7 +34,7 @@ namespace DoodleParserTests
         {
             var option = _rootObject.options.Skip(1).FirstOrDefault();
 
-            Assert.AreEqual(option.ReadableDate, new DateTime(2019,10, 16, 20, 30, 0));
+            Assert.AreEqual(option.ReadableDate, new DateTime(2019,10, 16, 18, 30, 0));
         }
 
         [Test]
@@ -42,7 +42,7 @@ namespace DoodleParserTests
         {
             var option = _rootObject.options.Skip(3).FirstOrDefault();
 
-            Assert.AreEqual(new DateTime(2019, 11, 6, 20, 30, 0), option.ReadableDate);
+            Assert.AreEqual(new DateTime(2019, 11, 6, 19, 30, 0), option.ReadableDate);
         }
 
         [Test]
