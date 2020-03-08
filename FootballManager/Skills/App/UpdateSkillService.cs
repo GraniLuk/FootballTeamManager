@@ -8,11 +8,12 @@ namespace FootballManager.Skills.App
 {
     public class UpdateSkillService
     {
-        private const int MinimumMatchesToBeRanked = 1;
-        private const int MaximumMatchesToRanking = 10;
+        private const int _minimumMatchesToBeRanked = 1;
+        private const int _maximumMatchesToRanking = 10;
         private readonly IPlayersTeamRepository _playersTeamRespository;
         private readonly IFixturesRepository _fixturesRespository;
         private readonly IPlayerRepository _playerRepository;
+
         public UpdateSkillService(ApplicationDbContext context)
         {
             _playersTeamRespository = new PlayersTeamRepository(context);
@@ -36,12 +37,11 @@ namespace FootballManager.Skills.App
             }
         }
 
-        public async Task<int> GetSkill(int playerId)
-        {
+        public async Task<int> GetSkill(int playerId) {
             var allPlayerTeams = _playersTeamRespository.GetAllTeamsForPlayer(playerId);
-            if (allPlayerTeams.Count < MinimumMatchesToBeRanked) return 0;
+            if (allPlayerTeams.Count < _minimumMatchesToBeRanked) return 0;
             var skill = 0;
-            var maximumMatches = Math.Min(MaximumMatchesToRanking, allPlayerTeams.Count);
+            var maximumMatches = Math.Min(_maximumMatchesToRanking, allPlayerTeams.Count);
             for (int i = 0; i < maximumMatches; i++)
             {
                 var match = allPlayerTeams[i];
