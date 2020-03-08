@@ -38,6 +38,7 @@ namespace FootballManager.Controllers
 
             return View(teamDisplayViewModel);
         }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

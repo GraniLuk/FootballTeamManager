@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
-
 namespace FootballTeamManager.Controllers {
     public class RankingController : Controller
     {

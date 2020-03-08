@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 
 namespace FootballManager.Controllers
@@ -15,6 +16,7 @@ namespace FootballManager.Controllers
     {
         private readonly ApplicationDbContext _db;
         private readonly IApi _doodleParser;
+
         public PlayerController(IApi client, ApplicationDbContext dbContext)
         {
             _doodleParser = client;
@@ -49,7 +51,7 @@ namespace FootballManager.Controllers
                     Date = t.Date,
                     FirstTeam = t.FirstTeam,
                     SecondTeam = t.SecondTeam,
-                    Score = t.FirstTeamScore.ToString() + ":" + t.SecondTeamScore.ToString(),
+                    Score = t.FirstTeamScore.ToString(CultureInfo.InvariantCulture) + ":" + t.SecondTeamScore.ToString(CultureInfo.InvariantCulture),
                     IsWon = t.FirstTeamScore > t.SecondTeamScore
                 });
 
@@ -62,7 +64,7 @@ namespace FootballManager.Controllers
                Date = t.Date,
                FirstTeam = t.FirstTeam,
                SecondTeam = t.SecondTeam,
-               Score = t.FirstTeamScore.ToString() + ":" + t.SecondTeamScore.ToString(),
+               Score = t.FirstTeamScore.ToString(CultureInfo.InvariantCulture) + ":" + t.SecondTeamScore.ToString(CultureInfo.InvariantCulture),
                IsWon = t.FirstTeamScore < t.SecondTeamScore
            });
 

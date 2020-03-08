@@ -40,11 +40,9 @@ namespace FootballManager.Models
             }
             catch (Exception ex)
             {
-
                 var a = ex.Message;
                 throw;
             }
-
         }
 
         public void DrawTeams()
@@ -76,7 +74,6 @@ namespace FootballManager.Models
 
             if (_firstTeam.Count > 0)
             {
-
                 foreach (var item in _firstTeam)
                 {
                     var player = _context.Players.Find(item.Id);
@@ -84,11 +81,9 @@ namespace FootballManager.Models
                     _context.Entry(player).State = EntityState.Modified;
                 }
                 _context.SaveChanges();
-
             }
             if (_secondTeam.Count > 0)
             {
-
                 foreach (var item in _secondTeam)
                 {
                     var player = _context.Players.Find(item.Id);
@@ -96,9 +91,7 @@ namespace FootballManager.Models
                     _context.Entry(player).State = EntityState.Modified;
                 }
                 _context.SaveChanges();
-
             }
-
         }
 
         private void GetExistingSquad()
@@ -147,7 +140,6 @@ namespace FootballManager.Models
                 counter = 1;
                 foreach (var item in a1)
                 {
-
                     firstTeamRanking += item.Skill;
                     item.TeamNumber = 1;
                     item.Lp = counter;
@@ -156,7 +148,6 @@ namespace FootballManager.Models
                 counter = 1;
                 foreach (var item in b2)
                 {
-
                     secondTeamRanking += item.Skill;
                     item.TeamNumber = 2;
                     item.Lp = counter;

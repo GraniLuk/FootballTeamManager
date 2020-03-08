@@ -12,11 +12,11 @@ namespace DoodleParserTests
     public class RootObjectParserTests
     {
         private RootObject _rootObject;
+
         [SetUp]
         public void ParseRootObject()
         {
             string responseString = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "\\TestData\\bqsFile.json");
-
 
             _rootObject = JsonConvert.DeserializeObject<RootObject>(responseString);
         }
@@ -51,7 +51,6 @@ namespace DoodleParserTests
             var option = _rootObject.CheckPositionDateInArray(new DateTime(2019, 10, 23));
 
             Assert.AreEqual(2, option);
-
         }
     }
 }

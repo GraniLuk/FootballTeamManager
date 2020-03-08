@@ -14,10 +14,12 @@ namespace FootballManager.Controllers
     public class FixtureController : Controller
     {
         private readonly ApplicationDbContext _context;
+
         public FixtureController(ApplicationDbContext context)
         {
             _context = context;
         }
+
         public IActionResult Index()
         {
             var fixtures = _context.Fixtures
@@ -112,9 +114,7 @@ namespace FootballManager.Controllers
                                      join player in _context.Players on playerAssign.Player.Id equals player.Id
                                      where playerAssign.Team.Id == fixture.SecondTeam.Id
                                      select player).ToList()
-
             };
-
 
             if (fixture.FirstTeam == null)
             {

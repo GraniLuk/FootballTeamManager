@@ -7,8 +7,8 @@ namespace DoodleApi
 {
     public class DoodleApi : IApi
     {
-
         private readonly string DoodleUrl;
+
         public DoodleApi(string doodleUrl)
         {
             DoodleUrl = doodleUrl;
@@ -21,6 +21,5 @@ namespace DoodleApi
             var participantsService = new ParticipantsService(rootObject);
             return participantsService.GetActiveParticipantsAt(date);
         }
-
     }
 }

@@ -10,6 +10,5 @@ namespace FootballManager.ViewModels
         public Team SecondTeam { get; set; }
         public string Score { get; set; }
         public bool IsWon { get; set; }
-
     }
 }

@@ -9,10 +9,12 @@ namespace DoodleApi.Client
     public class ParticipantsService
     {
         private readonly RootObject _rootObject;
+
         public ParticipantsService(RootObject rootObject)
         {
             _rootObject = rootObject;
         }
+
         private List<Participant> GetParticipants()
         {
             return _rootObject.participants;

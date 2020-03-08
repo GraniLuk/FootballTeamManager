@@ -10,6 +10,7 @@ namespace FootballManager.Skills.Infrastructure
     {
         private readonly ApplicationDbContext _context;
         IList<TeamPlayerAssociation> _allTeamPlayerAssociatons;
+
         public PlayersTeamRepository(ApplicationDbContext context)
         {
             _context = context;

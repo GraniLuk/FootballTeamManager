@@ -11,6 +11,5 @@ namespace FootballManager.ViewModels
         public int SecondTeamScore { get; set; }
         public IEnumerable<Player> FirstTeamPlayers { get; set; }
         public IEnumerable<Player> SecondTeamPlayers { get; set; }
-
     }
 }

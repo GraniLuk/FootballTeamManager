@@ -6,6 +6,7 @@ namespace FootballManager.Models
     public class Team
     {
         public int Id { get; set; }
+
         [Required]
         [StringLength(12)]
         public string Name { get; set; }

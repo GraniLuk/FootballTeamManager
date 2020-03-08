@@ -10,23 +10,21 @@ namespace FootballManager.Skills.Infrastructure
     {
         private readonly ApplicationDbContext _context;
         private readonly List<Fixture> _allFixtures;
+
         public FixturesRepository(ApplicationDbContext context)
         {
             _context = context;
             _allFixtures = GetAllFixtures();
         }
+
         public Fixture GetForATeam(int teamId)
         {
-
             return _allFixtures.FirstOrDefault(i => i.FirstTeam.Id == teamId);
-
         }
 
         public Fixture GetForBTeam(int teamId)
         {
-
             return _allFixtures.FirstOrDefault(i => i.SecondTeam.Id == teamId);
-
         }
 
         private List<Fixture> GetAllFixtures()
@@ -39,7 +37,6 @@ namespace FootballManager.Skills.Infrastructure
     {
         Fixture GetForATeam(int teamId);
         Fixture GetForBTeam(int teamId);
-
 
     }
 }

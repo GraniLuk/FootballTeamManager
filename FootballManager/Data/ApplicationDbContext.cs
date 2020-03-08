@@ -11,6 +11,7 @@ namespace FootballManager.Data
         public DbSet<Team> Teams { get; set; }
         public DbSet<TeamPlayerAssociation> TeamPlayerAssociations { get; set; }
         public DbSet<Ranking> Ranking { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {

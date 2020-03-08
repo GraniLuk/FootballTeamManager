@@ -29,7 +29,6 @@ namespace FootballManager.Controllers
             }
             TempData["ShowSaveButton"] = false;
             return RedirectToAction("Index", "Draw");
-
         }
 
         public ActionResult NewDraw()
@@ -41,9 +40,7 @@ namespace FootballManager.Controllers
             }
             TempData["ShowSaveButton"] = true;
             return RedirectToAction("Index", "Draw");
-
         }
-
 
 
     }

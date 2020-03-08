@@ -9,11 +9,11 @@ namespace FootballManager.Controllers
 {
     public class AdministrationController : Controller
     {
-        private readonly RoleManager<IdentityRole> roleManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
         public AdministrationController(RoleManager<IdentityRole> roleManager)
         {
-            this.roleManager = roleManager;
+            _roleManager = roleManager;
         }
 
         [HttpGet]
@@ -35,7 +35,7 @@ namespace FootballManager.Controllers
                 };
 
                 // Saves the role in the underlying AspNetRoles table
-                IdentityResult result = await roleManager.CreateAsync(identityRole);
+                IdentityResult result = await _roleManager.CreateAsync(identityRole).ConfigureAwait(false);
 
                 if (result.Succeeded)
                 {

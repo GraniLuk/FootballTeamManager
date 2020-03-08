@@ -23,6 +23,5 @@ namespace DoodleApi.Client
             var responseString = client.GetStringAsync(url).Result;
             return JsonSerializer.Deserialize<RootObject>(responseString);
         }
-
     }
 }
