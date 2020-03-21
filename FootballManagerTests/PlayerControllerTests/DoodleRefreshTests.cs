@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace FootballManagerTests {
+namespace FootballManagerTests.PlayerControllerTests {
     [TestFixture]
     public class DoodleRefreshTests {
         [Test]
