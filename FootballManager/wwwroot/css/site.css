@@ -62,7 +62,7 @@ body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
     /* Margin top by navbar height */
-    margin-top: 60px; 
+    margin-top: 60px;
 }
 .footer {
   position: absolute;
@@ -427,9 +427,10 @@ img {
     padding: 0.5rem 1rem;
     background-color: darkseagreen;
     flex-flow: row nowrap;
-    width : 100%;
+    width: 100%;
     overflow: hidden;
-    top : 0;
+    top: 0;
+    background-image: url('/images/pitch.png');
 }
 
 
