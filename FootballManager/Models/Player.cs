@@ -32,7 +32,7 @@ namespace FootballManager.Models
         public short TeamNumber { get; set; }
         public short Lp { get; set; }
 
-        [StringLength(30)]
+        [StringLength(31)]
         public string DoodleName { get; set; }
 
         public void SetAsActiveBasedOnDoodleList(List<DoodleApi.Model.Participant> activePlayers)
