@@ -418,19 +418,10 @@ img {
 
 .navbar-brand-my {
     position: fixed;
-    display: flex;
-    flex-wrap: wrap;
-    -ms-flex-align: center;
-    align-items: center;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    padding: 0.5rem 1rem;
-    background-color: darkseagreen;
-    flex-flow: row nowrap;
     width: 100%;
-    overflow: hidden;
     top: 0;
     background-image: url('/images/pitch.png');
+    background-repeat: round;
 }
 
 
