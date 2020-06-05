@@ -46,31 +46,43 @@ namespace FootballManager.Controllers
                 .Include(t => t.FirstTeam)
                 .Include(t => t.SecondTeam)
                 .Where(t => playerTeams.Contains(t.FirstTeam.Id))
+                .Select(
+                    t => new
+                    {
+                        t.Date,
+                        t.FirstTeam,
+                        t.SecondTeam,
+                        Score = t.FirstTeamScore.ToString(CultureInfo.InvariantCulture) + ":" + t.SecondTeamScore.ToString(CultureInfo.InvariantCulture),
+                        IsWon = t.FirstTeamScore > t.SecondTeamScore
+                    })
+                .AsEnumerable()
+                .Union(_db.Fixtures
+                .Include(t => t.FirstTeam)
+                .Include(t => t.SecondTeam)
+                .Where(t => playerTeams.Contains(t.SecondTeam.Id))
+                .Select(
+                    t => new
+                    {
+                        t.Date,
+                        t.FirstTeam,
+                        t.SecondTeam,
+                        Score = t.FirstTeamScore.ToString(CultureInfo.InvariantCulture) + ":" + t.SecondTeamScore.ToString(CultureInfo.InvariantCulture),
+                        IsWon = t.FirstTeamScore > t.SecondTeamScore
+                    })
+                )
+                .OrderByDescending(x => x.Date)
                 .Select(t => new FixturePlayerDisplayVIewModel()
                 {
                     Date = t.Date,
                     FirstTeam = t.FirstTeam,
                     SecondTeam = t.SecondTeam,
-                    Score = t.FirstTeamScore.ToString(CultureInfo.InvariantCulture) + ":" + t.SecondTeamScore.ToString(CultureInfo.InvariantCulture),
-                    IsWon = t.FirstTeamScore > t.SecondTeamScore
-                });
+                    Score = t.Score,
+                    IsWon = t.IsWon
+                })
+                
+                .ToList();
 
-            var fixturesInSecondTeam = _db.Fixtures
-           .Include(t => t.FirstTeam)
-           .Include(t => t.SecondTeam)
-           .Where(t => playerTeams.Contains(t.SecondTeam.Id))
-           .Select(t => new FixturePlayerDisplayVIewModel()
-           {
-               Date = t.Date,
-               FirstTeam = t.FirstTeam,
-               SecondTeam = t.SecondTeam,
-               Score = t.FirstTeamScore.ToString(CultureInfo.InvariantCulture) + ":" + t.SecondTeamScore.ToString(CultureInfo.InvariantCulture),
-               IsWon = t.FirstTeamScore < t.SecondTeamScore
-           });
-
-            var fixtures = fixturesInFirstTeam.Concat(fixturesInSecondTeam).OrderByDescending(x => x.Date);
-
-            playerDisplayViewModel.Fixtures = fixtures.ToList();
+            playerDisplayViewModel.Fixtures = fixturesInFirstTeam;
 
             if (playerDisplayViewModel.Player == null)
             {
