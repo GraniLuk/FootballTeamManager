@@ -67,7 +67,7 @@ namespace FootballManager.Controllers
                         t.FirstTeam,
                         t.SecondTeam,
                         Score = t.FirstTeamScore.ToString(CultureInfo.InvariantCulture) + ":" + t.SecondTeamScore.ToString(CultureInfo.InvariantCulture),
-                        IsWon = t.FirstTeamScore > t.SecondTeamScore
+                        IsWon = t.SecondTeamScore > t.FirstTeamScore
                     })
                 )
                 .OrderByDescending(x => x.Date)
