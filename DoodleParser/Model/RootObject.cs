@@ -28,7 +28,7 @@ namespace DoodleApi.Model
 
         public int CheckPositionDateInArray(DateTime date)
         {
-            return options.Select((s, i) => new { i, s }).Where(x => x.s.ReadableDate.Date == date.Date).Select(x => x.i).FirstOrDefault();
+            return options.Select((s, i) => new { i, s }).Where(x => x.s.ReadableDate.Date > date.Date).Select(x => x.i).FirstOrDefault();
         }
     }
 }
