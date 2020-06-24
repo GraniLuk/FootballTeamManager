@@ -37,7 +37,7 @@ namespace FootballManager.Models
 
         public void SetAsActiveBasedOnDoodleList(List<DoodleApi.Model.Participant> activePlayers)
         {
-            if (activePlayers.Any(x => string.CompareOrdinal(DoodleName,x.name,System.StringComparison.InvariantCulture) == true))
+            if (activePlayers.Any(x => string.Compare(DoodleName,x.name,System.StringComparison.InvariantCulture) == 0))
             {
                 Active = true;
             }
