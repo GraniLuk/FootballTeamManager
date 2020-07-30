@@ -23,7 +23,7 @@ namespace DoodleApi.Client
         public List<Participant> GetActiveParticipantsAt(DateTime date)
         {
             var option = _rootObject.CheckPositionDateInArray(date);
-            return GetParticipants().Where(x => x.preferences[option] == 1).ToList();
+            return GetParticipants().Where(x => x.preferences[option] > 0).ToList();
         }
     }
 }
