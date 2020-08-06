@@ -55,6 +55,10 @@ namespace FootballManager.Skills.App
                 else
                 {
                     fixture = _fixturesRespository.GetForBTeam(match.Team.Id);
+                    if (fixture == null) continue;
+                    {
+                        
+                    }
                     if (fixture.SecondTeamScore > fixture.FirstTeamScore)
                     {
                         skill++;
