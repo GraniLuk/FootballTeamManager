@@ -64,7 +64,7 @@ namespace FootballManager.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = RoleName.Admin)]
-        public ActionResult Edit([Bind("Id,Date,FirstTeam,SecondTeam,FirstTeamScore,SecondTeamScore,Season")]Fixture fixture)
+        public ActionResult Edit(Fixture fixture)
         {
             if (ModelState.IsValid)
             {
@@ -135,7 +135,7 @@ namespace FootballManager.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = RoleName.Admin)]
-        public ActionResult Create([Bind("Date")] Fixture fixture)
+        public ActionResult Create(Fixture fixture)
         {
             if (ModelState.IsValid)
             {
