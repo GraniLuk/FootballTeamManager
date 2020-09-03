@@ -34,7 +34,7 @@ namespace FootballManager.Controllers
                     FirstTeamName = x.FirstTeam.Name,
                     SecondTeamId = x.SecondTeam.Id,
                     SecondTeamName = x.SecondTeam.Name,
-                    Score = x.FirstTeamScore + ":" + x.SecondTeamScore
+                    Score = x.FirstTeamScore.ToString() + ":" + x.SecondTeamScore.ToString()
                 });
 
             if (fixtures == null)
